@@ -1,7 +1,3 @@
-import blocks.NewsLetterBlock;
-import org.assertj.core.api.Assertions;
-import org.assertj.core.api.SoftAssertions;
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
@@ -12,11 +8,10 @@ public class Test1 extends BaseTest {
 
     String expectedTextFromNewsLetterTitleLabel = "Get our latest news and special sales";
     String expectedTextFromUnsubscribeDescriptionLabel = "You may unsubscribe at any moment. For that purpose, please find my contact info in the legal notice.";
-
     MainPage mainPage = new MainPage();
 
 
-       String textFromNewsLetterTitleLabel = mainPage.openMainPage().waitDown().getNewsLetterBlock()
+    String textFromNewsLetterTitleLabel = mainPage.openMainPage().waitUntilMainPageWillBeDownload().getNewsLetterBlock()
         .getTextFromNewsLetterTitleLabel();
 
     softAssertions.assertThat(textFromNewsLetterTitleLabel)

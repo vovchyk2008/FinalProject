@@ -5,6 +5,7 @@ import java.time.Duration;
 import lombok.Getter;
 import lombok.Setter;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -43,5 +44,9 @@ public abstract class BasePage {
   public WebElement waitUntilPresents(By locator, int second) {
     return new WebDriverWait(driver, Duration.ofSeconds(second))
         .until(ExpectedConditions.presenceOfElementLocated(locator));
+  }
+
+  public static void scrollToElement(WebDriver driver, WebElement element) {
+    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
   }
 }

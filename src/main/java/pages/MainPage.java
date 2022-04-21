@@ -13,8 +13,12 @@ public class MainPage extends BasePage {
     return this;
   }
 
-  public MainPage waitDown() {
+  public MainPage waitUntilMainPageWillBeDownload() {
     waitUntilVisible(mainFrame, 15);
+    return this;
+  }
+  public MainPage switchOnFrame() {
+    getDriver().switchTo().frame(getDriver().findElement(mainFrame));
     return this;
   }
 }
