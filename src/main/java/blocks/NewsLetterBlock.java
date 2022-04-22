@@ -20,16 +20,17 @@ public class NewsLetterBlock {
     driver = webDriver;
   }
 
-  public String getTextFromNewsLetterTitleLabel(){
-    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", newsLetterTitleLabel);
+  public String getTextFromNewsLetterTitleLabel() {
+    ((JavascriptExecutor) driver)
+        .executeScript("arguments[0].scrollIntoView(true);", newsLetterTitleLabel);
     return driver.findElement(newsLetterTitleLabel).getText();
   }
 
-  public String getTextFromUnsubscribeDescriptionLabel(){
+  public String getTextFromUnsubscribeDescriptionLabel() {
     return driver.findElement(unsubscribeDescriptionLabel).getText();
   }
 
-  public String getTextFromSubscribeButton(){
+  public String getTextFromSubscribeButton() {
     return driver.findElement(subscribeButton).getAttribute("value");
 
   }
