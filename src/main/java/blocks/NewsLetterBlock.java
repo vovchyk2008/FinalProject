@@ -3,7 +3,6 @@ package blocks;
 import lombok.Getter;
 import lombok.Setter;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import utils.Utils;

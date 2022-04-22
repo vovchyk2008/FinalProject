@@ -17,10 +17,3 @@ public class MainPage extends BasePage {
     return this;
   }
 }
-
-
-
-//  public MainPage waitUntilMainPageWillBeDownload() {
-//    Utils.waitUntilVisible(mainFrame, 15);
-//    return this;
-//  }

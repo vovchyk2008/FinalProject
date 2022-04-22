@@ -30,7 +30,4 @@ public abstract class BasePage {
   NewsLetterBlock newsLetterBlock = new NewsLetterBlock(getDriver());
 
 
-
-
-
 }

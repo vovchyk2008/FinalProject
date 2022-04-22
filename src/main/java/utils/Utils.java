@@ -18,13 +18,15 @@ public class Utils {
   }
 
   public static void scrollToElement(WebDriver driver, By element) {
-    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(element));
+    ((JavascriptExecutor) driver)
+        .executeScript("arguments[0].scrollIntoView(true);", driver.findElement(element));
   }
 
   public static WebElement waitUntilVisible(By locator, int second) {
     return new WebDriverWait(driver, Duration.ofSeconds(second))
         .until(ExpectedConditions.visibilityOfElementLocated(locator));
   }
+
   public static WebElement waitUntilClickable(By locator, int second) {
     return new WebDriverWait(driver, Duration.ofSeconds(second))
         .until(ExpectedConditions.elementToBeClickable(locator));

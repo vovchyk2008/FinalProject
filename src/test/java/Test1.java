@@ -1,4 +1,3 @@
-import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
@@ -16,7 +15,6 @@ public class Test1 extends BaseTest {
         .openMainPage()
         .getNewsLetterBlock()
         .getTextFromNewsLetterTitleLabel();
-
 
     //Check that text near the email field equals 'Get our latest news and special sales'
 
