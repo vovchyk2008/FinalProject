@@ -1,3 +1,4 @@
+import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
@@ -8,13 +9,14 @@ public class Test1 extends BaseTest {
 
     String expectedTextFromNewsLetterTitleLabel = "Get our latest news and special sales";
     String expectedTextFromUnsubscribeDescriptionLabel = "You may unsubscribe at any moment. For that purpose, please find my contact info in the legal notice.";
+    String expectedTextFromSubscribeButton = "uppercase";
     MainPage mainPage = new MainPage();
 
-    String textFromNewsLetterTitleLabel = mainPage.openMainPage()
-        //.switchOnFrame()
-        .waitUntilMainPageWillBeDownload()
+    String textFromNewsLetterTitleLabel = mainPage
+        .openMainPage()
         .getNewsLetterBlock()
         .getTextFromNewsLetterTitleLabel();
+
 
     //Check that text near the email field equals 'Get our latest news and special sales'
 
@@ -36,8 +38,9 @@ public class Test1 extends BaseTest {
     //Check that all characters on 'SUBSCRIBE' button in upper case
 
     softAssertions.assertThat(textFromSubscribeButton)
-        .as("fd")
-        .isUpperCase();
+        .as("Text from 'SUBSCRIBE' button must be written in upper case, and we have: "
+            + textFromSubscribeButton)
+        .isEqualTo(expectedTextFromSubscribeButton);
 
     softAssertions.assertAll();
 

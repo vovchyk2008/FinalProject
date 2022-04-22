@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.BasePage;
+import utils.Utils;
 
 public class BaseTest {
 
@@ -15,7 +16,7 @@ public class BaseTest {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         BasePage.setDriver(driver);
-
+        Utils.setDriver(driver);
     }
 
     Faker faker = new Faker();

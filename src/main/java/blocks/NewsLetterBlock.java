@@ -5,6 +5,8 @@ import lombok.Setter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+import utils.Utils;
 
 @Getter
 @Setter
@@ -15,14 +17,16 @@ public class NewsLetterBlock {
   private static By subscribeButton = By.xpath("//input[@value='Subscribe']");
 
   private static WebDriver driver;
+  private static Actions actions;
 
   public NewsLetterBlock(WebDriver webDriver) {
     driver = webDriver;
+    actions = new Actions(driver);
   }
 
   public String getTextFromNewsLetterTitleLabel() {
-    ((JavascriptExecutor) driver)
-        .executeScript("arguments[0].scrollIntoView(true);", newsLetterTitleLabel);
+    Utils.waitUntilVisible(newsLetterTitleLabel, 10);
+    Utils.scrollToElement(driver, newsLetterTitleLabel);
     return driver.findElement(newsLetterTitleLabel).getText();
   }
 
@@ -31,10 +35,6 @@ public class NewsLetterBlock {
   }
 
   public String getTextFromSubscribeButton() {
-    return driver.findElement(subscribeButton).getAttribute("value");
-
+    return driver.findElement(subscribeButton).getCssValue("text-transform");
   }
-
 }
-//  WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//    wait.until(ExpectedConditions.visibilityOfElementLocated(newsLetterTitleLabel));
