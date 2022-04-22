@@ -2,23 +2,23 @@ Final project tasks
 
 1.All following test cases should be implemented with BDD or using Page Object pattern
 2.Logging and Reporting should be implemented
-3.Should be abillity to run tests in 2 threads
+3.Should be ability to run tests in 2 threads
 4.Should be ability to pass browser, browser resolution, and thread count as parameters
 5.All logical blocks on pages should be implemented as separate classes
 6.If some test cases will fail - create bug report for them
-7.Should be added README.md file with discription how to run your framework
+7.Should be added README.md file with description how to run your framework
 
 Test case #1 (Subscribe with invalid email)
 
 1.Go to the https://demo.prestashop.com/
-2.On the buttom of the page check that text near the email field equals 'Get our latest news and special sales'
-3.On the buttom of the page check that text under email field contains 'You may unsubscribe at any moment. For that purpose, please find my contact info in the legal notice.'
+2.On the bottom of the page check that text near the email field equals 'Get our latest news and special sales'
+3.On the bottom of the page check that text under email field contains 'You may unsubscribe at any moment. For that purpose, please find my contact info in the legal notice.'
 4.Check that all characters on 'SUBSCRIBE' button in upper case
 
 Test case #2 (Check languages)
 
 1.Go to the https://demo.prestashop.com/
-2.Check that 44 langueges exists in 'Language' dropdown in the top menu
+2.Check that 44 languages exists in 'Language' dropdown in the top menu
 3.Check that 'Українська' language exist in dropdown
 
 Test case #3 (Registration with valid data)
@@ -37,7 +37,7 @@ Test case #4 (Registration with invalid data)
 3.Click on 'No account? Create one here' link
 4.Fill 'First name' field with 'James8'
 5.Fill the rest fields valid data
-6.Check that 'First name' higlighted in red
+6.Check that 'First name' highlighted in red
 7.Check that pop-up with text 'Invalid name' appear under field
 
 Test case #5 (Check categories)
@@ -117,5 +117,5 @@ On the 'PAYMENT' section select 'Pay by Check'
 Check that Amount equal Subtotal+Shipping
 Click on 'I agree..' checkbox
 Click on 'Order with an obligation to pay'
-Check that 'YOUR ORDER IS CONFIRMED' appered on the next page
+Check that 'YOUR ORDER IS CONFIRMED' appeared on the next page
 Check that 'TOTAL' calculated correct
