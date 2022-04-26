@@ -52,70 +52,70 @@ Test case #5 (Check categories)
 
 Test case #6 (Check popular products)
 
-Go to the https://demo.prestashop.com/
-Check that 8 products exist in 'POPULAR PRODUCTS' section
-Check that every product has name
-Check that every product has price
-Check that all prices bigger than 0.00
+1.Go to the https://demo.prestashop.com/
+2.Check that 8 products exist in 'POPULAR PRODUCTS' section
+3.Check that every product has name
+4.Check that every product has price
+5.Check that all prices bigger than 0.00
 
 Test case #7 (Price drop check)
 
-Go to the https://demo.prestashop.com/
-At the bottom of the page click on 'Prices drop' link
-Check that every product has old and new price
-Check that promo price for every product calculates correct
+1.Go to the https://demo.prestashop.com/
+2.At the bottom of the page click on 'Prices drop' link
+3.Check that every product has old and new price
+4.Check that promo price for every product calculates correct
 
 Test case #8 (Sorting check)
 
-Go to the https://demo.prestashop.com/
-Click on the 'All products >' under the 'POPULAR PRODUCTS' section
-Sort products as 'Name, A to Z'
-Check that sorting is correct
-Sort products as 'Name, Z to A'
-Check that sorting is correct
-Sort products as 'Price, low to high'
-Check that sorting is correct
-Sort products as 'Price, high to low'
-Check that sorting is correct
+1.Go to the https://demo.prestashop.com/
+2.Click on the 'All products >' under the 'POPULAR PRODUCTS' section
+3.Sort products as 'Name, A to Z'
+4.Check that sorting is correct
+5.Sort products as 'Name, Z to A'
+6.Check that sorting is correct
+7.Sort products as 'Price, low to high'
+8.Check that sorting is correct
+9.Sort products as 'Price, high to low'
+10.Check that sorting is correct
 
 Test case #9 (Adding to cart)
 
-Go to the https://demo.prestashop.com/
-In the search field enter 'Bear' and press 'Enter'
-On the 'SEARCH RESULTS' page click on 'Brown Bear Notebook'
-Change 'Paper type' to 'Doted'
-Change 'Quantity' to '5'
-Click 'ADD TO CART' button
-Check that new window with title 'Product successfully added to your shopping cart' appears
-Check that correct 'Paper Type' and 'Quantity' is shown on the left side of the window
-Check that 'Total' calculated correct
+1.Go to the https://demo.prestashop.com/
+2.In the search field enter 'Bear' and press 'Enter'
+3.On the 'SEARCH RESULTS' page click on 'Brown Bear Notebook'
+4.Change 'Paper type' to 'Doted'
+5.Change 'Quantity' to '5'
+6.Click 'ADD TO CART' button
+7.Check that new window with title 'Product successfully added to your shopping cart' appears
+8.Check that correct 'Paper Type' and 'Quantity' is shown on the left side of the window
+9.Check that 'Total' calculated correct
 
 Test case #10 (Checkout end-to-end)
 
-Go to the https://demo.prestashop.com/
-In the search field enter 'Mug' and press 'Enter'
-On the 'SEARCH RESULTS' page click on 'Customizable Mug'
-Enter 'Best mug ever' in 'Product customization' field
-Click 'SAVE CUSTOMIZATION'
-Change 'Quantity' to '1' if not '1' already
-Click 'ADD TO CART' button
-On the next window click 'CONTINUE SHOPPING'
-In the search field enter 'T-Shirt' and press 'Enter'
-On the 'SEARCH RESULTS' page click on 'Hummingbird Printed T-Shirt'
-Select 'Black' color
-Click 'ADD TO CART' button
-On the next window click 'PROCEED TO CHECKOUT'
-On the 'SHOPPING CART' page check that 'Total' calculated correct
-Click 'PROCEED TO CHECKOUT'
-Fill 'PERSONAL INFORMATION' form with valid data (without password)
-Click 'CONTINUE'
-Fill the 'ADDRESSES' form with valid data
-Click 'CONTINUE'
-On the 'SHIPPING METHOD' section select 'My carrier'
-Click 'CONTINUE'
-On the 'PAYMENT' section select 'Pay by Check'
-Check that Amount equal Subtotal+Shipping
-Click on 'I agree..' checkbox
-Click on 'Order with an obligation to pay'
-Check that 'YOUR ORDER IS CONFIRMED' appeared on the next page
-Check that 'TOTAL' calculated correct
+1.Go to the https://demo.prestashop.com/
+2.In the search field enter 'Mug' and press 'Enter'
+3.On the 'SEARCH RESULTS' page click on 'Customizable Mug'
+4.Enter 'Best mug ever' in 'Product customization' field
+5.Click 'SAVE CUSTOMIZATION'
+6.Change 'Quantity' to '1' if not '1' already
+7.Click 'ADD TO CART' button
+8.On the next window click 'CONTINUE SHOPPING'
+9.In the search field enter 'T-Shirt' and press 'Enter'
+10.On the 'SEARCH RESULTS' page click on 'Hummingbird Printed T-Shirt'
+11.Select 'Black' color
+12.Click 'ADD TO CART' button
+13.On the next window click 'PROCEED TO CHECKOUT'
+14.On the 'SHOPPING CART' page check that 'Total' calculated correct
+15.Click 'PROCEED TO CHECKOUT'
+16.Fill 'PERSONAL INFORMATION' form with valid data (without password)
+17.Click 'CONTINUE'
+18.Fill the 'ADDRESSES' form with valid data
+19.Click 'CONTINUE'
+20.On the 'SHIPPING METHOD' section select 'My carrier'
+21.Click 'CONTINUE'
+22.On the 'PAYMENT' section select 'Pay by Check'
+23.Check that Amount equal Subtotal+Shipping
+24.Click on 'I agree..' checkbox
+25.Click on 'Order with an obligation to pay'
+26.Check that 'YOUR ORDER IS CONFIRMED' appeared on the next page
+27.Check that 'TOTAL' calculated correct

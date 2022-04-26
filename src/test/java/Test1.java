@@ -3,8 +3,8 @@ import pages.MainPage;
 
 public class Test1 extends BaseTest {
 
-  @Test
-  public void checkTheTextOnNewsLetterBlock() {
+  @Test(invocationCount = 5)
+  public void checkTheTextOnNewsLetterBlockTest() {
 
     String expectedTextFromNewsLetterTitleLabel = "Get our latest news and special sales";
     String expectedTextFromUnsubscribeDescriptionLabel = "You may unsubscribe at any moment. For that purpose, please find my contact info in the legal notice.";

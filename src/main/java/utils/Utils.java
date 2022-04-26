@@ -15,11 +15,16 @@ public class Utils {
 
   public static void setDriver(WebDriver webdriver) {
     driver = webdriver;
+
   }
 
   public static void scrollToElement(WebDriver driver, By element) {
     ((JavascriptExecutor) driver)
         .executeScript("arguments[0].scrollIntoView(true);", driver.findElement(element));
+  }
+
+  public static WebElement find(By locator) {
+    return driver.findElement(locator);
   }
 
   public static WebElement waitUntilVisible(By locator, int second) {
