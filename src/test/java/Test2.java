@@ -11,8 +11,8 @@ public class Test2 extends BaseTest {
     String expectedCountOfLanguages = "44";
 
     MainPage mainPage = new MainPage();
-    List<String> namesOfLanguages = mainPage.openMainPage().getLanguageBlock()
-        .clickOnLanguageDropShot()
+    List<String> namesOfLanguages = mainPage.openMainPage().getLanguageAndLoginBlockBlock()
+        .clickOnLanguageButton()
         .getNamesOfLanguages();
 
     //Check that 44 languages exists in 'Language' dropdown in the top menu

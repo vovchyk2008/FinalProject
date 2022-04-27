@@ -1,6 +1,6 @@
 package pages;
 
-import blocks.LanguageBlock;
+import blocks.LanguageAndLoginBlock;
 import blocks.NewsLetterBlock;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,21 +12,19 @@ import org.openqa.selenium.interactions.Actions;
 @Setter
 public abstract class BasePage {
 
-  private static By languageContainer = By.xpath("ul[@class='dropdown-menu hidden-sm-down']");
+  //Actions actions = new Actions(driver);
 
-  Actions actions = new Actions(driver);
   private static WebDriver driver;
-
   public static WebDriver getDriver() {
     return driver;
   }
-
   public static void setDriver(WebDriver webDriver) {
     driver = webDriver;
   }
 
-
-
   NewsLetterBlock newsLetterBlock = new NewsLetterBlock(getDriver());
-  LanguageBlock languageBlock = new LanguageBlock(getDriver());
+  LanguageAndLoginBlock languageAndLoginBlockBlock = new LanguageAndLoginBlock(getDriver());
+
+
+
 }
