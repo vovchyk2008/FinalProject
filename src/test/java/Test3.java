@@ -9,10 +9,10 @@ public class Test3 extends BaseTest {
   String lastName = faker.name().lastName();
   String email = faker.internet().emailAddress();
   String password = faker.internet().password();
-  String birthdayDateField = faker.date().birthday().toString();
+  String birthdayDateField = "12/02/1990";
 
   @Test
-  public void checkRegistrationWithValidData() {
+  public void checkThatUserNameAppearNearCartButtonTest() {
 
     String expectedUserName = firstName + " " + lastName;
 
@@ -26,7 +26,7 @@ public class Test3 extends BaseTest {
         .enterLastName(lastName)
         .enterEmail(email)
         .enterPassword(password)
-        //.enterBirthdayDate(birthdayDateField)
+        .enterBirthdayDate(birthdayDateField)
         .clickOnReceiveOffersCheckBox()
         .clickOnCustomerDataPrivacyCheckBox()
         .clickOnSignUpForOurNewsletterCheckBox()
