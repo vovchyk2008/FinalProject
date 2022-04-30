@@ -3,7 +3,7 @@ import org.testng.annotations.Test;
 import pages.CreateAnAccountPage;
 import pages.MainPage;
 
-public class Test4 extends BaseTest{
+public class Test4 extends BaseTest {
 
   String firstName = "James8";
   String lastName = faker.name().lastName();
@@ -12,9 +12,10 @@ public class Test4 extends BaseTest{
   String birthdayDateField = "12/02/1990";
 
   @Test
-  public void checkThatFirstNameHighlightedInRedTest(){
+  public void checkThatFirstNameHighlightedInRedTest() {
 
-    String expectedBorderColor = "1px solid rgba(0, 0, 0, 0.25)";
+    //rgba(0, 0, 0, 0.25) is equal "red"
+    String expectedBorderColor = "rgba(0, 0, 0, 0.25)";
     String expectedTextOfPopUp = "Invalid name";
 
     MainPage mainPage = new MainPage();
@@ -34,6 +35,7 @@ public class Test4 extends BaseTest{
         .clickOnSaveButton();
 
     CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();
+
     String borderColorFromFirstNameField = createAnAccountPage.getBorderColorFromFirstNameField();
 
     //Check that 'First name' highlighted in red
@@ -47,11 +49,10 @@ public class Test4 extends BaseTest{
     List<String> textFromDangerPopUp = createAnAccountPage.getTextFromDangerPopUp();
 
     softAssertions.assertThat(textFromDangerPopUp)
-    .as("We are waiting that text on pop-up will be: " + expectedTextOfPopUp)
-    .isEqualTo(expectedTextOfPopUp);
+        .as("We are waiting that text on pop-up will be: " + expectedTextOfPopUp)
+        .isEqualTo(expectedTextOfPopUp);
 
     softAssertions.assertAll();
 
   }
-
 }

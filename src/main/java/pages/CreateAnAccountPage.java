@@ -2,6 +2,7 @@ package pages;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utils.Utils;
@@ -73,8 +74,7 @@ public class CreateAnAccountPage extends BasePage {
   }
 
   public String getBorderColorFromFirstNameField() {
-    return Utils.find(firstNameField).getCssValue("border");
-  }
+    return StringUtils.substringAfter(Utils.find(firstNameField).getCssValue("border").trim(), "1px solid ");  }
 
   public List<String> getTextFromDangerPopUp() {
     List<String> textFromAlertDanger = new ArrayList<>();
