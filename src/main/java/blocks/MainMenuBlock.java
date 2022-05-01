@@ -1,5 +1,6 @@
 package blocks;
 
+import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
 import org.openqa.selenium.By;
@@ -27,6 +28,7 @@ public class MainMenuBlock {
   private static By stationeryButton = By.id("category-7");
   private static By homeAccessoriesButton = By.id("category-8");
   private static By home = By.xpath("//li[@id='category-6']/a");
+
 
 
   private static WebDriver driver;
@@ -60,6 +62,17 @@ public class MainMenuBlock {
     return Utils.getNamesFromButtons(accessoriesSubMenu);
   }
 
+//  public List<WebElement> countOfElementsInSubMenu() {
+//    List<WebElement> sumButtons = new ArrayList<>();
+//    List<WebElement> elements = driver.findElements(x);
+//    for (WebElement element : elements) {
+//      sumButtons.add(element);
+//
+//    }return sumButtons;
+//
+//  }
 
+  //іф іннерХТМЛ контеінс цей  top_sub_menu (тобто якщо є підменю), то збираю в лісту,
+  // ЕЛС (якщо немає), то нулаю Лісту (типу вона пуста).
 
 }

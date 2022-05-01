@@ -6,7 +6,7 @@ import pages.MainPage;
 public class Test6 extends BaseTest {
 
   @Test
-  public void checkThatFirstNameHighlightedInRedTest() {
+  public void checkNamesAndPricesInPopularProductsTest() {
 
     int expectedCountOfProduct = 8;
 

@@ -33,16 +33,18 @@ public class Test5 extends BaseTest {
         .geTextFromButtonsOfAccessoriesSubMenu1();
 
     //Check that 'STATIONERY' and 'HOME ACCESSORIES' sub menu items appears
+    
     softAssertions.assertThat(textFromButtonsOfAccessoriesButton)
         .as("We are waiting that text on buttons will be: " + expectedTextStationeryButton
             + expectedTextFromHomeAccessoriesButton)
         .containsExactlyInAnyOrder(expectedTextStationeryButton,
             expectedTextFromHomeAccessoriesButton);
 
-    mainPage
-        .openMainPage()
-        .getMainMenuBlock()
-        .hoverToArtButton();
+//    mainPage
+//        .openMainPage()
+//        .getMainMenuBlock()
+//        .hoverToClothesButton()
+//        .countOfElementsInSubMenu();
 
     softAssertions.assertAll();
   }

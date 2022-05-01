@@ -13,9 +13,11 @@ public class ProductBlock {
   private WebElement nameAsWebElement;
   private String nameAsString;
   private String discount;
+  private Double discountAsDouble;
   private String actualPrice;
   private Double actualPriceAsDouble;
   private String oldPrice;
+  private Double oldPriceAsDouble;
   private WebElement addToWishList;
 
   public ProductBlock(WebElement container) {
@@ -27,19 +29,18 @@ public class ProductBlock {
     }
 
     try {
-      this.nameAsWebElement = container.findElement(By.xpath(".//h3[@class='h3 product-title']/a"));
+      this.nameAsWebElement = container.findElement(By.xpath(".//*[@class='h3 product-title']/a"));
+      this.nameAsString = nameAsWebElement.getText();
     } catch (NoSuchElementException e) {
       this.nameAsWebElement = null;
+      this.nameAsString = null;
+
     }
 
-    try {
-      this.nameAsString = container.findElement(By.xpath(".//h3[@class='h3 product-title']/a")).getText();
-    } catch (NoSuchElementException e) {
-      this.nameAsWebElement = null;
-    }
 
     try {
       this.discount = container.findElement(By.xpath(".//li[@class='product-flag discount']")).getText();
+      this.discountAsDouble = Double.parseDouble(discount.substring(1,3));
     } catch (NoSuchElementException e) {
       this.discount = null;
     }
@@ -54,8 +55,10 @@ public class ProductBlock {
 
     try {
       this.oldPrice = container.findElement(By.xpath(".//span[@class='regular-price']")).getText();
+      this.oldPriceAsDouble = Double.parseDouble(oldPrice.substring(1));
     } catch (NoSuchElementException e) {
       this.oldPrice = null;
+      this.oldPriceAsDouble = null;
     }
 
     try {
