@@ -2,7 +2,7 @@ import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
-public class Test3 extends BaseTest {
+public class RegistrationWithValidDataTest extends BaseTest {
 
   String firstName = faker.name().firstName();
   String lastName = faker.name().lastName();
@@ -10,7 +10,7 @@ public class Test3 extends BaseTest {
   String password = faker.internet().password();
   String birthdayDateField = "12/02/1990";
 
-  @Test
+  @Test(description = "Check That User Name Appear Near Cart Button Test")
   public void checkThatUserNameAppearNearCartButtonTest() {
 
     String expectedUserName = firstName + " " + lastName;
@@ -19,7 +19,7 @@ public class Test3 extends BaseTest {
     mainPage.openMainPage()
         .getLanguageAndLoginBlockBlock()
         .clickOnSignInButton()
-        .clickOnNoAccountCreateAccountButton()
+        .clickOnCreateAccountButton()
         .checkSocialTitleRadioButton()
         .enterFirstName(firstName)
         .enterLastName(lastName)
@@ -37,7 +37,7 @@ public class Test3 extends BaseTest {
     //Check your name appear near cart button
 
     Assertions.assertThat(textFromUserNameButton)
-        .as("We are waiting, that ")
+        .as("We are waiting, that text near cart Button must be: " + expectedUserName)
         .isEqualTo(expectedUserName);
   }
 }

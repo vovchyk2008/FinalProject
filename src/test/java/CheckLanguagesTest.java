@@ -2,9 +2,9 @@ import java.util.List;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
-public class Test2 extends BaseTest {
+public class CheckLanguagesTest extends BaseTest {
 
-  @Test
+  @Test(description = "Check Languages Test")
   public void checkLanguagesTest() {
 
     String expectedLanguage = "Українська";

@@ -4,9 +4,9 @@ import org.testng.annotations.Test;
 import pages.MainPage;
 import pages.PricesDrop;
 
-public class Test7 extends BaseTest{
+public class CheckPricesTest extends BaseTest {
 
-  @Test
+  @Test(description = "Check That Every Product Has Old And New Price And They Are Correct Test")
   public void checkThatEveryProductHasOldAndNewPriceAndTheyAreCorrectTest() {
 
     MainPage mainPage = new MainPage();
@@ -21,7 +21,8 @@ public class Test7 extends BaseTest{
     //Check that every product has old and new price
 
     softAssertions.assertThat(allProductWithOldAndNewPrice)
-        .as("")
+        .as("We are waiting that " + allProductWithOldAndNewPrice + " and " + allProductsFromPage
+            + " are equal to each other")
         .isEqualTo(allProductsFromPage);
 
     List<ProductBlock> allProductWithCorrectPrice = pricesDrop
@@ -30,7 +31,8 @@ public class Test7 extends BaseTest{
     //Check that promo price for every product calculates correct
 
     softAssertions.assertThat(allProductWithCorrectPrice)
-        .as("")
+        .as("We are waiting that " + allProductWithCorrectPrice + " and "
+            + allProductWithOldAndNewPrice + " are equal to each other")
         .isEqualTo(allProductWithOldAndNewPrice);
 
     softAssertions.assertAll();

@@ -1,6 +1,7 @@
 package pages;
 
 import blocks.ProductBlock;
+import io.qameta.allure.Step;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -13,9 +14,11 @@ public class PricesDrop extends BasePage{
   private static final By productContainer = By
       .xpath("//div[@class='thumbnail-container reviews-loaded']");
 
+  @Step("Get All Products from page")
   public List<ProductBlock> getAllProductsFromPage() {
     Utils.waitUntilVisible(productContainer, 20);
     Utils.scrollToElement(getDriver(), productContainer);
+    Utils.waitRefreshed(productContainer, 20);
     List<ProductBlock> products = new ArrayList<>();
     List<WebElement> containers = getDriver().findElements(productContainer);
     for (WebElement container : containers) {
@@ -31,8 +34,9 @@ public class PricesDrop extends BasePage{
       if (productBlock.getActualPriceAsDouble() != null && productBlock.getOldPriceAsDouble()!=null) {
         productsWithPrices.add(productBlock);
       }
-    }
-    return productsWithPrices;
+    } return productsWithPrices;
+
+
   }
 
   public List<ProductBlock> getAllProductWithCorrectPrice(List<ProductBlock> productsWithPrices) {
@@ -43,7 +47,6 @@ public class PricesDrop extends BasePage{
           - (productBlock.getOldPriceAsDouble() * productBlock.getDiscountAsDouble()) / 100));
       if (promoPrise==productBlock.getActualPriceAsDouble()) {
         productsWithCorrectPrices.add(productBlock);
-
       }
     }
     return productsWithCorrectPrices;

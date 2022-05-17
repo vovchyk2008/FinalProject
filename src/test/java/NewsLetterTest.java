@@ -1,13 +1,14 @@
 import org.testng.annotations.Test;
 import pages.MainPage;
 
-public class Test1 extends BaseTest {
+public class NewsLetterTest extends BaseTest {
 
-  @Test(invocationCount = 5)
+  @Test(description = "Check The Text On News Letter Block Test")
   public void checkTheTextOnNewsLetterBlockTest() {
 
     String expectedTextFromNewsLetterTitleLabel = "Get our latest news and special sales";
-    String expectedTextFromUnsubscribeDescriptionLabel = "You may unsubscribe at any moment. For that purpose, please find my contact info in the legal notice.";
+    String expectedTextFromUnsubscribeDescriptionLabel =
+        "You may unsubscribe at any moment. For that purpose, please find my contact info in the legal notice.";
     String expectedTextFromSubscribeButton = "uppercase";
     MainPage mainPage = new MainPage();
 
@@ -25,7 +26,8 @@ public class Test1 extends BaseTest {
     String textFromUnsubscribeDescriptionLabel = mainPage.getNewsLetterBlock()
         .getTextFromUnsubscribeDescriptionLabel();
 
-    //check that text under email field contains 'You may unsubscribe at any moment. For that purpose, please find my contact info in the legal notice.'
+    //check that text under email field contains 'You may unsubscribe at any moment.
+    // For that purpose, please find my contact info in the legal notice.'
 
     softAssertions.assertThat(textFromUnsubscribeDescriptionLabel)
         .as("Text under email field must contains: " + expectedTextFromUnsubscribeDescriptionLabel)

@@ -1,5 +1,6 @@
 package blocks;
 
+import io.qameta.allure.Step;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
@@ -19,16 +20,15 @@ public class MainMenuBlock {
 
   //Sub Menu
   private static By clothesSubMenu
-      = By.xpath("//li[@id='category-3']/div[contains(@id,'top_sub_menu')]/ul/li/a");
+      = By.xpath("//li[@id='category-3']//div[contains(@id,'top_sub_menu')]//a");
   private static By menButton = By.id("category-4");
   private static By womenButton = By.id("category-5");
 
   private static By accessoriesSubMenu
-      = By.xpath("//li[@id='category-6']/div[contains(@id,'top_sub_menu')]/ul/li/a");
+      = By.xpath("//li[@id='category-6']//div[contains(@id,'top_sub_menu')]//a");
   private static By stationeryButton = By.id("category-7");
   private static By homeAccessoriesButton = By.id("category-8");
   private static By home = By.xpath("//li[@id='category-6']/a");
-
 
 
   private static WebDriver driver;
@@ -49,30 +49,13 @@ public class MainMenuBlock {
     return this;
   }
 
-  public MainMenuBlock hoverToArtButton() {
-    Utils.hoverToButton(artButton);
-    return this;
-  }
-
-  public List<String> geTextFromButtonsOfClothesSubMenu1() {
+  @Step("Get Text From Buttons Of [Clothes Sub Menu]")
+  public List<String> geTextFromButtonsOfClothesSubMenu() {
     return Utils.getNamesFromButtons(clothesSubMenu);
   }
 
-  public List<String> geTextFromButtonsOfAccessoriesSubMenu1() {
+  @Step("Get Text From Buttons Of [Accessories Sub Menu]")
+  public List<String> getTextFromButtonsOfAccessoriesSubMenu() {
     return Utils.getNamesFromButtons(accessoriesSubMenu);
   }
-
-//  public List<WebElement> countOfElementsInSubMenu() {
-//    List<WebElement> sumButtons = new ArrayList<>();
-//    List<WebElement> elements = driver.findElements(x);
-//    for (WebElement element : elements) {
-//      sumButtons.add(element);
-//
-//    }return sumButtons;
-//
-//  }
-
-  //іф іннерХТМЛ контеінс цей  top_sub_menu (тобто якщо є підменю), то збираю в лісту,
-  // ЕЛС (якщо немає), то нулаю Лісту (типу вона пуста).
-
 }

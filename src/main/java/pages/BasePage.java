@@ -6,6 +6,7 @@ import blocks.MainMenuBlock;
 import lombok.Getter;
 import lombok.Setter;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import utils.Utils;
@@ -15,7 +16,7 @@ import utils.Utils;
 public abstract class BasePage {
 
   private static By pricesDropButton = By.id("link-product-page-prices-drop-1");
-
+  private static By searchInput = By.xpath("//input[@aria-label='Search']");
 
   Actions actions = new Actions(driver);
   private static WebDriver driver;
@@ -35,6 +36,13 @@ public abstract class BasePage {
     Utils.scrollToElement(driver, pricesDropButton);
     Utils.find(pricesDropButton).click();
     return new PricesDrop();
+  }
+
+  public SearchResultPage enterSearchName(String searchName){
+    Utils.waitUntilVisible(searchInput, 20);
+    getDriver().findElement(searchInput).sendKeys(searchName);
+    getDriver().findElement(searchInput).sendKeys(Keys.ENTER);
+    return new SearchResultPage();
   }
 
 }

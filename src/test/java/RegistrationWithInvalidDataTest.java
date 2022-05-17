@@ -3,7 +3,7 @@ import org.testng.annotations.Test;
 import pages.CreateAnAccountPage;
 import pages.MainPage;
 
-public class Test4 extends BaseTest {
+public class RegistrationWithInvalidDataTest extends BaseTest {
 
   String firstName = "James8";
   String lastName = faker.name().lastName();
@@ -11,7 +11,7 @@ public class Test4 extends BaseTest {
   String password = faker.internet().password();
   String birthdayDateField = "12/02/1990";
 
-  @Test
+  @Test(description = "Check That First Name Highlighted In Red Test" )
   public void checkThatFirstNameHighlightedInRedTest() {
 
     //rgba(0, 0, 0, 0.25) is equal "red"
@@ -22,7 +22,7 @@ public class Test4 extends BaseTest {
     mainPage.openMainPage()
         .getLanguageAndLoginBlockBlock()
         .clickOnSignInButton()
-        .clickOnNoAccountCreateAccountButton()
+        .clickOnCreateAccountButton()
         .checkSocialTitleRadioButton()
         .enterFirstName(firstName)
         .enterLastName(lastName)

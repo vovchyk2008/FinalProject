@@ -3,9 +3,9 @@ import java.util.List;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
-public class Test6 extends BaseTest {
+public class CheckPopularProductsTest extends BaseTest {
 
-  @Test
+  @Test(description = "Check Names And Prices In Popular Products Test")
   public void checkNamesAndPricesInPopularProductsTest() {
 
     int expectedCountOfProduct = 8;

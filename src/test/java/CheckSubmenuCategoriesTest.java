@@ -2,9 +2,9 @@ import java.util.List;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
-public class Test5 extends BaseTest {
+public class CheckSubmenuCategoriesTest extends BaseTest {
 
-  @Test
+  @Test(description = "Check That First Name Highlighted In Red Test")
   public void checkThatFirstNameHighlightedInRedTest() {
 
     String expectedTextFromMenButton = "MEN";
@@ -17,7 +17,7 @@ public class Test5 extends BaseTest {
         .openMainPage()
         .getMainMenuBlock()
         .hoverToClothesButton()
-        .geTextFromButtonsOfClothesSubMenu1();
+        .geTextFromButtonsOfClothesSubMenu();
 
     //Check that 'MEN' and 'WOMEN' sub menu items appears
 
@@ -30,21 +30,15 @@ public class Test5 extends BaseTest {
         .openMainPage()
         .getMainMenuBlock()
         .hoverToAccessoriesButton()
-        .geTextFromButtonsOfAccessoriesSubMenu1();
+        .getTextFromButtonsOfAccessoriesSubMenu();
 
     //Check that 'STATIONERY' and 'HOME ACCESSORIES' sub menu items appears
-    
+
     softAssertions.assertThat(textFromButtonsOfAccessoriesButton)
         .as("We are waiting that text on buttons will be: " + expectedTextStationeryButton
             + expectedTextFromHomeAccessoriesButton)
         .containsExactlyInAnyOrder(expectedTextStationeryButton,
             expectedTextFromHomeAccessoriesButton);
-
-//    mainPage
-//        .openMainPage()
-//        .getMainMenuBlock()
-//        .hoverToClothesButton()
-//        .countOfElementsInSubMenu();
 
     softAssertions.assertAll();
   }
