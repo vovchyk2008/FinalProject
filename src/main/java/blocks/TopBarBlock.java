@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import pages.LoginPage;
 import utils.Utils;
 
-public class LanguageAndLoginBlock {
+public class TopBarBlock {
 
   //Buttons
   private static final By languageButton = By.xpath("//i[@class='material-icons expand-more']");
@@ -21,12 +21,12 @@ public class LanguageAndLoginBlock {
 
   private static WebDriver driver;
 
-  public LanguageAndLoginBlock(WebDriver webDriver) {
+  public TopBarBlock(WebDriver webDriver) {
     driver = webDriver;
   }
 
   @Step("Click on [Language Button]")
-  public LanguageAndLoginBlock clickOnLanguageButton() {
+  public TopBarBlock clickOnLanguageButton() {
     Utils.waitUntilVisible(languageButton, 10);
     Utils.find(languageButton).click();
     return this;

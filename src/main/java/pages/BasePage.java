@@ -1,6 +1,6 @@
 package pages;
 
-import blocks.LanguageAndLoginBlock;
+import blocks.TopBarBlock;
 import blocks.NewsLetterBlock;
 import blocks.MainMenuBlock;
 import lombok.Getter;
@@ -28,7 +28,7 @@ public abstract class BasePage {
   }
 
   NewsLetterBlock newsLetterBlock = new NewsLetterBlock(getDriver());
-  LanguageAndLoginBlock languageAndLoginBlockBlock = new LanguageAndLoginBlock(getDriver());
+  TopBarBlock topBarBlockBlock = new TopBarBlock(getDriver());
   MainMenuBlock mainMenuBlock = new MainMenuBlock(getDriver());
 
   public PricesDrop clickOnPricesDropButton(){

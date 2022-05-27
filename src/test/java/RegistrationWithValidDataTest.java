@@ -17,7 +17,7 @@ public class RegistrationWithValidDataTest extends BaseTest {
 
     MainPage mainPage = new MainPage();
     mainPage.openMainPage()
-        .getLanguageAndLoginBlockBlock()
+        .getTopBarBlockBlock()
         .clickOnSignInButton()
         .clickOnCreateAccountButton()
         .checkSocialTitleRadioButton()
@@ -32,7 +32,7 @@ public class RegistrationWithValidDataTest extends BaseTest {
         .clickOnAgreeToTheTermsCheckBox()
         .clickOnSaveButton();
 
-    String textFromUserNameButton = mainPage.getLanguageAndLoginBlockBlock()
+    String textFromUserNameButton = mainPage.getTopBarBlockBlock()
         .getTextFromUserNameButton();
 
     //Check your name appear near cart button

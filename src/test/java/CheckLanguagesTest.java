@@ -12,7 +12,7 @@ public class CheckLanguagesTest extends BaseTest {
     int expectedCountOfLanguages = 44;
 
     MainPage mainPage = new MainPage();
-    List<String> namesOfLanguages = mainPage.openMainPage().getLanguageAndLoginBlockBlock()
+    List<String> namesOfLanguages = mainPage.openMainPage().getTopBarBlockBlock()
         .clickOnLanguageButton()
         .getNamesOfLanguages();
 

@@ -21,7 +21,7 @@ public class RegistrationWithInvalidDataTest extends BaseTest {
 
     MainPage mainPage = new MainPage();
     mainPage.openMainPage()
-        .getLanguageAndLoginBlockBlock()
+        .getTopBarBlockBlock()
         .clickOnSignInButton()
         .clickOnCreateAccountButton()
         .checkSocialTitleRadioButton()
