@@ -9,14 +9,14 @@ import utils.Utils;
 
 public class ProductPage extends BasePage {
 
-  private static By selectPaperTypeButton = By.id("group_4");
-  private static By selectDotedTypeButton = By.xpath("//select[@id='group_4']//option[text()='Doted']");
-  private static By quantitySelect = By.id("quantity_wanted");
-  private static By addToCartButton = By.xpath("//button[@class='btn btn-primary add-to-cart']");
+  private static final By selectPaperTypeButton = By.id("group_4");
+  private static final By selectDotedTypeButton = By.xpath("//select[@id='group_4']//option[text()='Doted']");
+  private static final By quantitySelect = By.id("quantity_wanted");
+  private static final By addToCartButton = By.xpath("//button[@class='btn btn-primary add-to-cart']");
 
-  private static By customizationMessageInput = By.xpath("//textarea[@class='product-message']");
-  private static By saveCustomizationButton = By.xpath("//button[@name='submitCustomizedData']");
-  private static By selectColorRadioButton = By.xpath("//input[@class='input-color']");
+  private static final By customizationMessageInput = By.xpath("//textarea[@class='product-message']");
+  private static final By saveCustomizationButton = By.xpath("//button[@name='submitCustomizedData']");
+  private static final By selectColorRadioButton = By.xpath("//input[@class='input-color']");
 
 
   @Step("Enter Customization Message]")

@@ -1,8 +1,6 @@
 package pages;
 
-import blocks.AddingToCartBlock;
 import blocks.CartBlock;
-import blocks.ProductBlock;
 import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.By;
@@ -11,7 +9,7 @@ import utils.Utils;
 
 public class CartPage extends BasePage {
 
-  private static By cartProductContainer = By.xpath("//div[@class='product-line-grid']");
+  private static final By cartProductContainer = By.xpath("//div[@class='product-line-grid']");
 
   public List<CartBlock> getAllProductsFromAllProductsPage() {
     Utils.waitUntilVisible(cartProductContainer, 20);

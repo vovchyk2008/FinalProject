@@ -14,21 +14,21 @@ import utils.Utils;
 public class MainMenuBlock {
 
   //Top Menu
-  private static By clothesButton = By.id("category-3");
-  private static By accessoriesButton = By.id("category-6");
-  private static By artButton = By.id("category-9");
+  private static final By clothesButton = By.id("category-3");
+  private static final By accessoriesButton = By.id("category-6");
+  private static final By artButton = By.id("category-9");
 
   //Sub Menu
-  private static By clothesSubMenu
+  private static final By clothesSubMenu
       = By.xpath("//li[@id='category-3']//div[contains(@id,'top_sub_menu')]//a");
-  private static By menButton = By.id("category-4");
-  private static By womenButton = By.id("category-5");
+  private static final By menButton = By.id("category-4");
+  private static final By womenButton = By.id("category-5");
 
-  private static By accessoriesSubMenu
+  private final By accessoriesSubMenu
       = By.xpath("//li[@id='category-6']//div[contains(@id,'top_sub_menu')]//a");
-  private static By stationeryButton = By.id("category-7");
-  private static By homeAccessoriesButton = By.id("category-8");
-  private static By home = By.xpath("//li[@id='category-6']/a");
+  private static final By stationeryButton = By.id("category-7");
+  private static final By homeAccessoriesButton = By.id("category-8");
+  private static final By home = By.xpath("//li[@id='category-6']/a");
 
 
   private static WebDriver driver;

@@ -10,17 +10,17 @@ import utils.Utils;
 
 public class CreateAnAccountPage extends BasePage {
 
-  private static By socialTitleRadioButton = By.id("field-id_gender-1");
-  private static By firstNameField = By.id("field-firstname");
-  private static By lastNameField = By.id("field-lastname");
-  private static By emailField = By.id("field-email");
-  private static By passwordField = By.id("field-password");
-  private static By birthdayDateField = By.id("field-birthday");
-  private static By receiveOffersCheckBox = By.xpath("//input[@name='optin']");
-  private static By customerDataPrivacyCheckBox = By.xpath("//input[@name='customer_privacy']");
-  private static By signUpForOurNewsletterCheckBox = By.xpath("//input[@name='newsletter']");
-  private static By saveButton = By.xpath("//button[@data-link-action='save-customer']");
-  private static By dangerPopUp = By.xpath("//li[@class='alert alert-danger']");
+  private static final By socialTitleRadioButton = By.id("field-id_gender-1");
+  private static final By firstNameField = By.id("field-firstname");
+  private static final By lastNameField = By.id("field-lastname");
+  private static final By emailField = By.id("field-email");
+  private static final By passwordField = By.id("field-password");
+  private static final By birthdayDateField = By.id("field-birthday");
+  private static final By receiveOffersCheckBox = By.xpath("//input[@name='optin']");
+  private static final By customerDataPrivacyCheckBox = By.xpath("//input[@name='customer_privacy']");
+  private static final By signUpForOurNewsletterCheckBox = By.xpath("//input[@name='newsletter']");
+  private static final By saveButton = By.xpath("//button[@data-link-action='save-customer']");
+  private static final By dangerPopUp = By.xpath("//li[@class='alert alert-danger']");
 
   @Step("Check [Social Title] Radio Button")
   public CreateAnAccountPage checkSocialTitleRadioButton() {

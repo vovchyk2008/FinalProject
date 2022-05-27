@@ -15,8 +15,8 @@ import utils.Utils;
 @Setter
 public abstract class BasePage {
 
-  private static By pricesDropButton = By.id("link-product-page-prices-drop-1");
-  private static By searchInput = By.xpath("//input[@aria-label='Search']");
+  private static final By pricesDropButton = By.id("link-product-page-prices-drop-1");
+  private static final By searchInput = By.xpath("//input[@aria-label='Search']");
 
   Actions actions = new Actions(driver);
   private static WebDriver driver;

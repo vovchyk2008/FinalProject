@@ -10,9 +10,9 @@ import utils.Utils;
 @Setter
 public class NewsLetterBlock {
 
-  private static By newsLetterTitleLabel = By.id("block-newsletter-label");
-  private static By unsubscribeDescriptionLabel = By.xpath("//div[@class='col-xs-12']/p");
-  private static By subscribeButton = By.xpath("//input[@value='Subscribe']");
+  private static final By newsLetterTitleLabel = By.id("block-newsletter-label");
+  private static final By unsubscribeDescriptionLabel = By.xpath("//div[@class='col-xs-12']/p");
+  private static final By subscribeButton = By.xpath("//input[@value='Subscribe']");
 
 
   private static WebDriver driver;

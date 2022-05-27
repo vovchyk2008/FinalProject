@@ -11,11 +11,11 @@ import utils.Utils;
 
 public class AllProductsPage extends BasePage{
 
-  private static By socialTitleRadioButton = By.xpath("//button[@class='btn-unstyle select-title']");
-  private static By sortFromAToZButton = By.xpath("//a[contains(text(), 'Name, A to Z')]");
-  private static By sortFromZToAButton = By.xpath("//a[contains(text(), 'Name, Z to A')]");
-  private static By sortFromLowToHighPriceButton = By.xpath("//a[contains(text(), 'Price, low to high')]");
-  private static By sortFromHighToLowPriceButton = By.xpath("//a[contains(text(), 'Price, high to low')]");
+  private static final By socialTitleRadioButton = By.xpath("//button[@class='btn-unstyle select-title']");
+  private static final By sortFromAToZButton = By.xpath("//a[contains(text(), 'Name, A to Z')]");
+  private static final By sortFromZToAButton = By.xpath("//a[contains(text(), 'Name, Z to A')]");
+  private static final By sortFromLowToHighPriceButton = By.xpath("//a[contains(text(), 'Price, low to high')]");
+  private static final By sortFromHighToLowPriceButton = By.xpath("//a[contains(text(), 'Price, high to low')]");
 
   private static final By productContainer = By
       .xpath("//div[@class='thumbnail-container reviews-loaded']");

@@ -8,7 +8,7 @@ import utils.Utils;
 
 public class AddingToCartPage extends BasePage{
 
-  private static By cartContainer = By.xpath("//div[@id='blockcart-modal']");
+  private static final By cartContainer = By.xpath("//div[@id='blockcart-modal']");
 
   @Step("Get Product Info")
   public AddingToCartBlock getProductInfo(){

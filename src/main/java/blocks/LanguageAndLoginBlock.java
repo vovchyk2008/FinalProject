@@ -12,12 +12,12 @@ import utils.Utils;
 public class LanguageAndLoginBlock {
 
   //Buttons
-  private static By languageButton = By.xpath("//i[@class='material-icons expand-more']");
-  private static By signInButton = By.xpath("//a[@title='Log in to your customer account']");
-  private static By userNameButton = By.xpath("//a[@class='account']//span[@class='hidden-sm-down']");
+  private static final By languageButton = By.xpath("//i[@class='material-icons expand-more']");
+  private static final By signInButton = By.xpath("//a[@title='Log in to your customer account']");
+  private static final By userNameButton = By.xpath("//a[@class='account']//span[@class='hidden-sm-down']");
 
   //Attributes
-  private static By languageContainer = By.xpath("//ul[@class='dropdown-menu hidden-sm-down']/li");
+  private static final By languageContainer = By.xpath("//ul[@class='dropdown-menu hidden-sm-down']/li");
 
   private static WebDriver driver;
 
