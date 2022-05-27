@@ -1,5 +1,6 @@
 import blocks.ProductBlock;
 import java.util.List;
+import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
@@ -15,6 +16,7 @@ public class CheckPopularProductsTest extends BaseTest {
         .getAllProductsFromMainPage();
 
     //Check that 8 products exist in 'POPULAR PRODUCTS' section
+    SoftAssertions softAssertions = new SoftAssertions();
 
     softAssertions.assertThat(allProductsFromMainPage.size())
         .as("We are waiting that: " + expectedCountOfProduct

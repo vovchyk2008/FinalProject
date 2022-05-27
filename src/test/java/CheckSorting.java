@@ -1,5 +1,6 @@
 import blocks.ProductBlock;
 import java.util.List;
+import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 import pages.AllProductsPage;
 import pages.MainPage;
@@ -22,7 +23,8 @@ public class CheckSorting extends BaseTest {
         .getSortedProductsFromAToZ(allProductsFromAllProductsPageAfterSortingFromAToZ);
 
     //Check that sorting products as 'Name, A to Z' is correct
-
+    SoftAssertions softAssertions = new SoftAssertions();
+    
     softAssertions.assertThat(allProductsFromAllProductsPageAfterSortingFromAToZ)
         .as("We are waiting that: " + allProductsFromAllProductsPageAfterSortingFromAToZ +
             "is equal to " + sortedProductsFromAToZ)

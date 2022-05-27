@@ -1,5 +1,6 @@
 import blocks.ProductBlock;
 import java.util.List;
+import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 import pages.MainPage;
 import pages.PricesDrop;
@@ -19,6 +20,7 @@ public class CheckPricesTest extends BaseTest {
         .getAllProductWithOldAndNewPrice(allProductsFromPage);
 
     //Check that every product has old and new price
+    SoftAssertions softAssertions = new SoftAssertions();
 
     softAssertions.assertThat(allProductWithOldAndNewPrice)
         .as("We are waiting that " + allProductWithOldAndNewPrice + " and " + allProductsFromPage

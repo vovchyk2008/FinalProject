@@ -1,4 +1,5 @@
 import java.util.List;
+import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
@@ -20,6 +21,7 @@ public class CheckSubmenuCategoriesTest extends BaseTest {
         .geTextFromButtonsOfClothesSubMenu();
 
     //Check that 'MEN' and 'WOMEN' sub menu items appears
+    SoftAssertions softAssertions = new SoftAssertions();
 
     softAssertions.assertThat(textFromButtonsOfClothesSubMenu)
         .as("We are waiting that text on buttons will be: " + expectedTextFromMenButton

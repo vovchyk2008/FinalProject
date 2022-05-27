@@ -1,3 +1,4 @@
+import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
@@ -18,6 +19,7 @@ public class NewsLetterTest extends BaseTest {
         .getTextFromNewsLetterTitleLabel();
 
     //Check that text near the email field equals 'Get our latest news and special sales'
+    SoftAssertions softAssertions = new SoftAssertions();
 
     softAssertions.assertThat(textFromNewsLetterTitleLabel)
         .as("Text near the email field equals must be: " + expectedTextFromNewsLetterTitleLabel)

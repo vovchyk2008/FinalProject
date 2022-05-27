@@ -44,5 +44,4 @@ public abstract class BasePage {
     getDriver().findElement(searchInput).sendKeys(Keys.ENTER);
     return new SearchResultPage();
   }
-
 }

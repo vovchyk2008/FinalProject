@@ -1,4 +1,5 @@
 import java.util.List;
+import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
@@ -16,6 +17,7 @@ public class CheckLanguagesTest extends BaseTest {
         .getNamesOfLanguages();
 
     //Check that 44 languages exists in 'Language' dropdown in the top menu
+    SoftAssertions softAssertions = new SoftAssertions();
 
     softAssertions.assertThat(namesOfLanguages.size())
         .as("We are waiting that 44 languages exists in 'Language' dropdown")

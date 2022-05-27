@@ -16,24 +16,4 @@ public class AddingToCartPage extends BasePage{
     WebElement container = getDriver().findElement(cartContainer);
     return new AddingToCartBlock(container);
   }
-
-  @Step("Click On [Continue Shopping Button]")
-  public ProductPage clickOnContinueShoppingButton(){
-    getProductInfo().getContinueShoppingButton().click();
-    return new ProductPage();
-  }
-
-  @Step("Click On [Proceed To Checkout] Button")
-  public CartPage clickOnProceedToCheckoutButton(){
-    getProductInfo().getProceedToCheckoutButton().click();
-    return new CartPage();
-  }
-
-
-
-
-
-
-
-
 }

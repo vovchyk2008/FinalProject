@@ -25,7 +25,7 @@ public class BaseTest {
   }
 
   Faker faker = new Faker();
-  SoftAssertions softAssertions = new SoftAssertions();
+
 
   @AfterMethod
   public void quite() {
