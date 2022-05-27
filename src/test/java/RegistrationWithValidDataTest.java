@@ -29,6 +29,7 @@ public class RegistrationWithValidDataTest extends BaseTest {
         .clickOnReceiveOffersCheckBox()
         .clickOnCustomerDataPrivacyCheckBox()
         .clickOnSignUpForOurNewsletterCheckBox()
+        .clickOnAgreeToTheTermsCheckBox()
         .clickOnSaveButton();
 
     String textFromUserNameButton = mainPage.getLanguageAndLoginBlockBlock()

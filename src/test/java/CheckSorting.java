@@ -24,7 +24,7 @@ public class CheckSorting extends BaseTest {
 
     //Check that sorting products as 'Name, A to Z' is correct
     SoftAssertions softAssertions = new SoftAssertions();
-    
+
     softAssertions.assertThat(allProductsFromAllProductsPageAfterSortingFromAToZ)
         .as("We are waiting that: " + allProductsFromAllProductsPageAfterSortingFromAToZ +
             "is equal to " + sortedProductsFromAToZ)

@@ -15,8 +15,8 @@ public class RegistrationWithInvalidDataTest extends BaseTest {
   @Test(description = "Check That First Name Highlighted In Red Test" )
   public void checkThatFirstNameHighlightedInRedTest() {
 
-    //rgba(0, 0, 0, 0.25) is equal "red"
-    String expectedBorderColor = "rgba(0, 0, 0, 0.25)";
+    //rgba(255, 76, 76, 1) is equal "red"
+    String expectedBorderColor = "rgba(255, 76, 76, 1)";
     String expectedTextOfPopUp = "Invalid name";
 
     MainPage mainPage = new MainPage();
@@ -33,6 +33,7 @@ public class RegistrationWithInvalidDataTest extends BaseTest {
         .clickOnReceiveOffersCheckBox()
         .clickOnCustomerDataPrivacyCheckBox()
         .clickOnSignUpForOurNewsletterCheckBox()
+        .clickOnAgreeToTheTermsCheckBox()
         .clickOnSaveButton();
 
     CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();

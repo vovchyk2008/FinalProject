@@ -3,7 +3,6 @@ package pages;
 import io.qameta.allure.Step;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utils.Utils;
@@ -19,6 +18,7 @@ public class CreateAnAccountPage extends BasePage {
   private static final By receiveOffersCheckBox = By.xpath("//input[@name='optin']");
   private static final By customerDataPrivacyCheckBox = By.xpath("//input[@name='customer_privacy']");
   private static final By signUpForOurNewsletterCheckBox = By.xpath("//input[@name='newsletter']");
+  private static final By agreeToTheTermsCheckBox = By.xpath("//input[@name='psgdpr']");
   private static final By saveButton = By.xpath("//button[@data-link-action='save-customer']");
   private static final By dangerPopUp = By.xpath("//li[@class='alert alert-danger']");
 
@@ -77,6 +77,12 @@ public class CreateAnAccountPage extends BasePage {
     return this;
   }
 
+  @Step("Click On [SignUp] CheckBox")
+  public CreateAnAccountPage clickOnAgreeToTheTermsCheckBox() {
+    Utils.find(agreeToTheTermsCheckBox).click();
+    return this;
+  }
+
   @Step("Click On [Save Button] CheckBox")
   public MainPage clickOnSaveButton() {
     Utils.find(saveButton).click();
@@ -84,7 +90,8 @@ public class CreateAnAccountPage extends BasePage {
   }
 
   public String getBorderColorFromFirstNameField() {
-    return StringUtils.substringAfter(Utils.find(firstNameField).getCssValue("border").trim(), "1px solid ");  }
+    Utils.waitRefreshed(firstNameField, 10);
+    return Utils.find(firstNameField).getCssValue("outline-color");  }
 
   public List<String> getTextFromDangerPopUp() {
     List<String> textFromAlertDanger = new ArrayList<>();
@@ -94,5 +101,4 @@ public class CreateAnAccountPage extends BasePage {
     }
     return textFromAlertDanger;
   }
-
 }

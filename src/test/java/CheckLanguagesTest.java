@@ -9,7 +9,7 @@ public class CheckLanguagesTest extends BaseTest {
   public void checkLanguagesTest() {
 
     String expectedLanguage = "Українська";
-    String expectedCountOfLanguages = "44";
+    int expectedCountOfLanguages = 44;
 
     MainPage mainPage = new MainPage();
     List<String> namesOfLanguages = mainPage.openMainPage().getLanguageAndLoginBlockBlock()
@@ -19,9 +19,9 @@ public class CheckLanguagesTest extends BaseTest {
     //Check that 44 languages exists in 'Language' dropdown in the top menu
     SoftAssertions softAssertions = new SoftAssertions();
 
-    softAssertions.assertThat(namesOfLanguages.size())
-        .as("We are waiting that 44 languages exists in 'Language' dropdown")
-        .isEqualTo(expectedCountOfLanguages);
+    softAssertions.assertThat(namesOfLanguages)
+        .as("We are waiting that " + expectedCountOfLanguages + "languages exists in 'Language' dropdown")
+        .hasSize(expectedCountOfLanguages);
 
     //Check that 'Українська' language exist in dropdown
 
