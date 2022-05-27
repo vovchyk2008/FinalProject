@@ -70,7 +70,4 @@ public class Utils {
     }
     return buttons;
   }
-
-
-
 }
