@@ -10,7 +10,7 @@ public class NewsLetterTest extends BaseTest {
     String expectedTextFromNewsLetterTitleLabel = "Get our latest news and special sales";
     String expectedTextFromUnsubscribeDescriptionLabel =
         "You may unsubscribe at any moment. For that purpose, please find my contact info in the legal notice.";
-    String expectedTextTransformFromSubscribeButton = "uppercase";
+    String expectedAttributeFromSubscribeButton = "uppercase";
     MainPage mainPage = new MainPage();
 
     String textFromNewsLetterTitleLabel = mainPage
@@ -35,13 +35,13 @@ public class NewsLetterTest extends BaseTest {
         .as("Text under email field must contains: " + expectedTextFromUnsubscribeDescriptionLabel)
         .contains(expectedTextFromUnsubscribeDescriptionLabel);
 
-    String textFromSubscribeButton = mainPage.getNewsLetterBlock().getTextFromSubscribeButton();
+    String actualAttributeFromSubscribeButton = mainPage.getNewsLetterBlock().getTextFromSubscribeButton();
 
     //Check that all characters on 'SUBSCRIBE' button in upper case
 
-    softAssertions.assertThat(textFromSubscribeButton)
+    softAssertions.assertThat(actualAttributeFromSubscribeButton)
         .as("'SUBSCRIBE' button should have attribute 'uppercase'")
-        .isEqualTo(expectedTextTransformFromSubscribeButton);
+        .isEqualTo(expectedAttributeFromSubscribeButton);
 
     softAssertions.assertAll();
 
