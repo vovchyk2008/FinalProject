@@ -39,36 +39,24 @@ public class MainPage extends BasePage {
     return products;
   }
 
-  public List<ProductBlock> getAllProductWithName(List<ProductBlock> allProducts) {
-    List<ProductBlock> productsWithName = new ArrayList<>();
+  public List<String> getAllNamesFromProducts(List<ProductBlock> allProducts) {
+    List<String> names = new ArrayList<>();
     for (ProductBlock productBlock : allProducts) {
-      if (productBlock.getNameAsString() != null) {
-        productsWithName.add(productBlock);
-      }
+      names.add(productBlock.getNameAsString());
     }
-    return productsWithName;
+    return names;
   }
 
-  public List<ProductBlock> getAllProductsWithPrice(List<ProductBlock> allProducts){
-    List<ProductBlock> productsWithPrise = new ArrayList<>();
+  public List<Double> getAllPricesFromProducts(List<ProductBlock> allProducts) {
+    List<Double> prices = new ArrayList<>();
     for (ProductBlock productBlock : allProducts) {
-      if (productBlock.getActualPrice()!=null){
-        productsWithPrise.add(productBlock);
-      }
-    }return productsWithPrise;
-  }
-
-  public List<ProductBlock> getAllProductsWithPriceMoreThanZero(List<ProductBlock> productsWithPrices){
-    List<ProductBlock> productsWithPrise = new ArrayList<>();
-    for (ProductBlock productBlock : productsWithPrices) {
-      if (productBlock.getActualPriceAsDouble()>0.00){
-        productsWithPrise.add(productBlock);
-      }
-    }return productsWithPrise;
+      prices.add(productBlock.getActualPriceAsDouble());
+    }
+    return prices;
   }
 
   @Step("Click On [All Products Button]")
-  public AllProductsPage clickOnAllProductsButton(){
+  public AllProductsPage clickOnAllProductsButton() {
     Utils.waitUntilPresents(allProductsButton, 10);
     Utils.scrollToElement(getDriver(), allProductsButton);
     Utils.find(allProductsButton).click();

@@ -35,8 +35,6 @@ public class PricesDrop extends BasePage{
         productsWithPrices.add(productBlock);
       }
     } return productsWithPrices;
-
-
   }
 
   public List<ProductBlock> getAllProductWithCorrectPrice(List<ProductBlock> productsWithPrices) {

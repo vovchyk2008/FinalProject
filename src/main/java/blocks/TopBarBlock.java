@@ -54,5 +54,4 @@ public class TopBarBlock {
     Utils.waitUntilVisible(userNameButton, 10);
     return Utils.find(userNameButton).getText();
   }
-
 }

@@ -77,7 +77,7 @@ public class CreateAnAccountPage extends BasePage {
     return this;
   }
 
-  @Step("Click On [SignUp] CheckBox")
+  @Step("Click On [Agree To The Terms] CheckBox")
   public CreateAnAccountPage clickOnAgreeToTheTermsCheckBox() {
     Utils.find(agreeToTheTermsCheckBox).click();
     return this;
