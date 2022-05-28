@@ -16,33 +16,36 @@ public class CheckPricesTest extends BaseTest {
         .getAllProductsFromPage();
 
     PricesDrop pricesDrop = new PricesDrop();
-    List<ProductBlock> allProductWithOldAndNewPrice = pricesDrop
-        .getAllProductWithOldAndNewPrice(allProductsFromPage);
+    List<Double> oldPricesFromProducts = pricesDrop
+        .getOldPricesFromProducts(allProductsFromPage);
 
-    //Check that every product has old and new price
+    //Check that every product has old price
     SoftAssertions softAssertions = new SoftAssertions();
 
-    softAssertions.assertThat(allProductWithOldAndNewPrice)
-        .as("We are waiting that " + allProductWithOldAndNewPrice + " and " + allProductsFromPage
-            + " are equal to each other")
-        .isEqualTo(allProductsFromPage);
+    softAssertions.assertThat(oldPricesFromProducts)
+        .as("We are waiting that every price from " + oldPricesFromProducts + " is not null")
+        .allMatch(aDouble -> aDouble != null);
 
-    List<ProductBlock> allProductWithCorrectPrice = pricesDrop
-        .getAllProductWithCorrectPrice(allProductWithOldAndNewPrice);
+    List<Double> newPricesFromProducts = pricesDrop
+        .getNewPricesFromProducts(allProductsFromPage);
+
+    //Check that every product has new price
+
+    softAssertions.assertThat(newPricesFromProducts)
+        .as("We are waiting that every price from " + newPricesFromProducts + " is not null ")
+        .allMatch(aDouble -> aDouble != null);
+
+    List<Double> correctPricesFromProducts = pricesDrop
+        .correctPricesFromProducts(allProductsFromPage);
 
     //Check that promo price for every product calculates correct
 
-    softAssertions.assertThat(allProductWithCorrectPrice)
-        .as("We are waiting that " + allProductWithCorrectPrice + " and "
-            + allProductWithOldAndNewPrice + " are equal to each other")
-        .isEqualTo(allProductWithOldAndNewPrice);
+    softAssertions.assertThat(correctPricesFromProducts)
+        .as("We are waiting that " + correctPricesFromProducts + " and "
+            + newPricesFromProducts + " are equal to each other")
+        .isEqualTo(newPricesFromProducts);
 
     softAssertions.assertAll();
-
-
   }
+
 }
-//1.Go to the https://demo.prestashop.com/
-//    2.At the bottom of the page click on 'Prices drop' link
-//    3.Check that every product has old and new price
-//    4.Check that promo price for every product calculates correct

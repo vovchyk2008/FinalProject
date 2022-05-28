@@ -28,26 +28,29 @@ public class PricesDrop extends BasePage{
     return products;
   }
 
-  public List<ProductBlock> getAllProductWithOldAndNewPrice(List<ProductBlock> allProducts) {
-    List<ProductBlock> productsWithPrices = new ArrayList<>();
+  public List<Double> getOldPricesFromProducts(List<ProductBlock> allProducts) {
+    List<Double> prices = new ArrayList<>();
     for (ProductBlock productBlock : allProducts) {
-      if (productBlock.getActualPriceAsDouble() != null && productBlock.getOldPriceAsDouble()!=null) {
-        productsWithPrices.add(productBlock);
-      }
-    } return productsWithPrices;
+        prices.add(productBlock.getOldPriceAsDouble());
+    } return prices;
   }
 
-  public List<ProductBlock> getAllProductWithCorrectPrice(List<ProductBlock> productsWithPrices) {
-    List<ProductBlock> productsWithCorrectPrices = new ArrayList<>();
+  public List<Double> getNewPricesFromProducts(List<ProductBlock> allProducts) {
+    List<Double> prices = new ArrayList<>();
+    for (ProductBlock productBlock : allProducts) {
+        prices.add(productBlock.getActualPriceAsDouble());
+    } return prices;
+  }
+
+  public List<Double> correctPricesFromProducts(List<ProductBlock> productsWithPrices) {
+    List<Double> correctPrices = new ArrayList<>();
     for (ProductBlock productBlock : productsWithPrices) {
       double promoPrise = Double.parseDouble(String.format(Locale.ROOT, "%.2f",
           productBlock.getOldPriceAsDouble()
           - (productBlock.getOldPriceAsDouble() * productBlock.getDiscountAsDouble()) / 100));
-      if (promoPrise==productBlock.getActualPriceAsDouble()) {
-        productsWithCorrectPrices.add(productBlock);
-      }
+        correctPrices.add(promoPrise);
     }
-    return productsWithCorrectPrices;
+    return correctPrices;
   }
 
 }
