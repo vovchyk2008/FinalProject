@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 
 @Getter
 public class ProductBlock {
-  //div[@class='thumbnail-container reviews-loaded']
 
   private WebElement img;
   private WebElement nameAsWebElement;
