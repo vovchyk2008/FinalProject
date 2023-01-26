@@ -27,7 +27,7 @@ public class TopBarBlock {
 
   @Step("Click on [Language Button]")
   public TopBarBlock clickOnLanguageButton() {
-    Utils.waitUntilVisible(languageButton, 10);
+    Utils.waitUntilClickable(languageButton, 10);
     Utils.find(languageButton).click();
     return this;
   }
@@ -42,6 +42,7 @@ public class TopBarBlock {
     }
     return languages;
   }
+
   @Step("Click On [Sign In] Button")
   public LoginPage clickOnSignInButton(){
     Utils.waitUntilVisible(signInButton, 10);
@@ -51,7 +52,7 @@ public class TopBarBlock {
 
   @Step("Get Text From [UserName] Button")
   public String getTextFromUserNameButton(){
-    Utils.waitUntilVisible(userNameButton, 10);
+    Utils.waitUntilPresents(userNameButton, 10);
     return Utils.find(userNameButton).getText();
   }
 }

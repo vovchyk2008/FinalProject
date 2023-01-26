@@ -5,22 +5,23 @@ import pages.MainPage;
 
 public class AddingToCartTest extends BaseTest {
 
-  @Test(description = "Check That Sorting Is Correct Test")
-  public void checkThatSortingIsCorrectTest() {
+  @Test(invocationCount = 5)
+  //(description = "Check That Adding To Cart Is Correct Test")
+  public void checkThatAddingToCartIsCorrectTest() {
 
     String searchNameOnSearchBlock = "Bear";
     String name = "Brown Bear Notebook";
     String expectedStatusAfterAddedToCart = "Product successfully added to your shopping cart";
-    String expectedPaperType = "Doted";
+    String paperType = "Doted";
     int quantity = 5;
 
     MainPage mainPage = new MainPage();
     AddingToCartBlock productBlock = mainPage.openMainPage()
         .enterSearchName(searchNameOnSearchBlock)
         .clickOnSearchingProduct(name)
-        .selectPaperType()
+        .selectPaperType(paperType)
         .selectQuantity(quantity)
-        .addToCartButton()
+        .clickOnAddToCartButton()
         .getProductInfo();
 
     SoftAssertions softAssertions = new SoftAssertions();
@@ -35,20 +36,20 @@ public class AddingToCartTest extends BaseTest {
     //Check that correct 'Paper Type' and 'Quantity' is shown on the left side of the window
 
     softAssertions.assertThat(productBlock.getPaperType())
-        .as("We are waiting that Paper Type must be: " + expectedPaperType)
-        .isEqualTo(expectedPaperType);
+        .as("We are waiting that Paper Type must be: " + paperType)
+        .isEqualTo(paperType);
 
     softAssertions.assertThat(productBlock.getProductQuantity())
         .as("We are waiting that quantity of products must be: " + quantity)
         .isEqualTo(quantity);
 
-    Double actualTotalPrice = productBlock.getProductPrice() * quantity;
+    Double expectedTotalPrice = productBlock.getProductPrice() * quantity;
 
     //Check that 'Total' calculated correct
 
     softAssertions.assertThat(productBlock.getTotalPrice())
-        .as("We are waiting that Total prise must be: " + actualTotalPrice)
-        .isEqualTo(actualTotalPrice);
+        .as("We are waiting that Total prise must be: " + expectedTotalPrice)
+        .isEqualTo(expectedTotalPrice);
 
     softAssertions.assertAll();
 

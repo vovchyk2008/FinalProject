@@ -1,19 +1,22 @@
 import blocks.ProductBlock;
 import java.util.List;
+import java.util.Objects;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
 public class CheckPopularProductsTest extends BaseTest {
 
-  @Test(description = "Check Names And Prices In Popular Products Test")
+  @Test//(invocationCount = 5)
+  //(description = "Check Names And Prices In Popular Products Test")
   public void checkNamesAndPricesInPopularProductsTest() {
 
     int expectedCountOfProduct = 8;
     double priceBiggerThen = 0.00;
 
     MainPage mainPage = new MainPage();
-    List<ProductBlock> allProductsFromMainPage = mainPage.openMainPage()
+    List<ProductBlock> allProductsFromMainPage = mainPage
+        .openMainPage()
         .getAllProductsFromMainPage();
 
     //Check that 8 products exist in 'POPULAR PRODUCTS' section
@@ -44,7 +47,8 @@ public class CheckPopularProductsTest extends BaseTest {
     //Check that all prices bigger than 0.00
 
     softAssertions.assertThat(allPricesFromProducts)
-        .as("We are waiting that every price from: " + allPricesFromProducts + "is bigger then" + priceBiggerThen)
+        .as("We are waiting that every price from: " + allPricesFromProducts + "is bigger then"
+            + priceBiggerThen)
         .allMatch(aDouble -> aDouble > priceBiggerThen);
 
     softAssertions.assertAll();

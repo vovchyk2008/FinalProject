@@ -53,12 +53,6 @@ public class CreateAnAccountPage extends BasePage {
     return this;
   }
 
-  @Step("Enter [BirthDay Date]")
-  public CreateAnAccountPage enterBirthdayDate(String birthdayDate) {
-    Utils.find(birthdayDateField).sendKeys(birthdayDate);
-    return this;
-  }
-
   @Step("Click On [Receive Offers] CheckBox")
   public CreateAnAccountPage clickOnReceiveOffersCheckBox() {
     Utils.find(receiveOffersCheckBox).click();
@@ -84,13 +78,22 @@ public class CreateAnAccountPage extends BasePage {
   }
 
   @Step("Click On [Save Button] CheckBox")
-  public MainPage clickOnSaveButton() {
+  public MainPage clickOnSaveButtonWithValidData() {
     Utils.find(saveButton).click();
     return new MainPage();
   }
 
+  @Step("Click On [Save Button] CheckBox")
+  public CreateAnAccountPage clickOnSaveButtonWithInvalidData() {
+    Utils.find(saveButton).click();
+    return this;
+  }
+
+
+
   public String getBorderColorFromFirstNameField() {
     Utils.waitRefreshed(firstNameField, 10);
+    Utils.waitUntilPresents(firstNameField, 10);
     return Utils.find(firstNameField).getCssValue("outline-color");  }
 
   public List<String> getTextFromDangerPopUp() {

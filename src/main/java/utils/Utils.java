@@ -57,6 +57,11 @@ public class Utils {
         .until(ExpectedConditions.refreshed((ExpectedConditions.stalenessOf(driver.findElement(locator)))));
   }
 
+  public static WebElement waitRefreshedUntilPresents(By locator, int second) {
+    return new WebDriverWait(driver, Duration.ofSeconds(second))
+        .until(ExpectedConditions.refreshed((ExpectedConditions.presenceOfElementLocated(locator))));
+  }
+
   public static void hoverToButton(By button) {
     waitUntilPresents(button, 10);
     actions.moveToElement(Utils.find(button)).build().perform();

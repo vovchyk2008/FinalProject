@@ -5,14 +5,17 @@ import pages.MainPage;
 
 public class CheckLanguagesTest extends BaseTest {
 
-  @Test(description = "Check Languages Test")
+  @Test(invocationCount = 5)
+      //(description = "Check Languages Test")
   public void checkLanguagesTest() {
 
     String expectedLanguage = "Українська";
     int expectedCountOfLanguages = 44;
 
     MainPage mainPage = new MainPage();
-    List<String> namesOfLanguages = mainPage.openMainPage().getTopBarBlockBlock()
+    List<String> namesOfLanguages = mainPage.openMainPage()
+        //.waitUntilApplicationLoaded(20)
+        .getTopBarBlock()
         .clickOnLanguageButton()
         .getNamesOfLanguages();
 

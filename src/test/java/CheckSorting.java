@@ -7,7 +7,8 @@ import pages.MainPage;
 
 public class CheckSorting extends BaseTest {
 
-  @Test(description = "Check That Sorting Is Correct Test")
+  @Test(invocationCount = 5)
+  //(description = "Check That Sorting Is Correct Test")
   public void checkThatSortingIsCorrectTest() {
 
     MainPage mainPage = new MainPage();
@@ -26,7 +27,7 @@ public class CheckSorting extends BaseTest {
     SoftAssertions softAssertions = new SoftAssertions();
 
     softAssertions.assertThat(allProductsFromAllProductsPageAfterSortingFromAToZ)
-        .as("We are waiting that: " + allProductsFromAllProductsPageAfterSortingFromAToZ +
+        .as("Sorting products as 'Name, A to Z' is correct when: " + allProductsFromAllProductsPageAfterSortingFromAToZ +
             "is equal to " + sortedProductsFromAToZ)
         .isEqualTo(sortedProductsFromAToZ);
 
@@ -40,7 +41,7 @@ public class CheckSorting extends BaseTest {
     //Check that sorting products as 'Name, Z to A' is correct
 
     softAssertions.assertThat(allProductsFromAllProductsPageAfterSortingFromZToA)
-        .as("We are waiting that: " + allProductsFromAllProductsPageAfterSortingFromZToA +
+        .as("Sorting products as 'Name, Z to A' is correct when: " + allProductsFromAllProductsPageAfterSortingFromZToA +
             "is equal to " + sortedProductsFromZToA)
         .isEqualTo(sortedProductsFromZToA);
 
@@ -55,7 +56,7 @@ public class CheckSorting extends BaseTest {
     //Check that sorting products as 'Price, low to high' is correct
 
     softAssertions.assertThat(allProductsFromAllProductsPageAfterSortingFromLowToHighPriceButton)
-        .as("We are waiting that: "
+        .as("Sorting products as 'Price, low to high' is correctWe when: "
             + allProductsFromAllProductsPageAfterSortingFromLowToHighPriceButton +
             "is equal to " + sortedProductsFromLowToHighPrice)
         .isEqualTo(sortedProductsFromLowToHighPrice);
@@ -70,7 +71,7 @@ public class CheckSorting extends BaseTest {
     //Check that sorting products as 'Price, high to low' is correct
 
     softAssertions.assertThat(allProductsFromAllProductsPageAfterSortingFromHighToLowPriceButton)
-        .as("We are waiting that: "
+        .as("Sorting products as 'Price, high to low' is correct when: "
             + allProductsFromAllProductsPageAfterSortingFromHighToLowPriceButton +
             "is equal to " + sortedProductsFromHighToLowPrice)
         .isEqualTo(sortedProductsFromHighToLowPrice);

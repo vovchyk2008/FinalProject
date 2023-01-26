@@ -6,14 +6,14 @@ import pages.MainPage;
 
 public class RegistrationWithInvalidDataTest extends BaseTest {
 
-  String firstName = "James8";
-  String lastName = faker.name().lastName();
-  String email = faker.internet().emailAddress();
-  String password = faker.internet().password();
-  String birthdayDateField = "12/02/1990";
-
-  @Test(description = "Check That First Name Highlighted In Red Test" )
+  @Test(invocationCount = 5)
+  //(description = "Check That First Name Highlighted In Red Test" )
   public void checkThatFirstNameHighlightedInRedTest() {
+
+    String firstName = "James8";
+    String lastName = faker.name().lastName();
+    String email = faker.internet().emailAddress();
+    String password = faker.internet().password(8,72);
 
     //rgba(255, 76, 76, 1) is equal "red"
     String expectedBorderColor = "rgba(255, 76, 76, 1)";
@@ -21,7 +21,7 @@ public class RegistrationWithInvalidDataTest extends BaseTest {
 
     MainPage mainPage = new MainPage();
     mainPage.openMainPage()
-        .getTopBarBlockBlock()
+        .getTopBarBlock()
         .clickOnSignInButton()
         .clickOnCreateAccountButton()
         .checkSocialTitleRadioButton()
@@ -29,12 +29,11 @@ public class RegistrationWithInvalidDataTest extends BaseTest {
         .enterLastName(lastName)
         .enterEmail(email)
         .enterPassword(password)
-        .enterBirthdayDate(birthdayDateField)
         .clickOnReceiveOffersCheckBox()
         .clickOnCustomerDataPrivacyCheckBox()
         .clickOnSignUpForOurNewsletterCheckBox()
         .clickOnAgreeToTheTermsCheckBox()
-        .clickOnSaveButton();
+        .clickOnSaveButtonWithInvalidData();
 
     CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();
 

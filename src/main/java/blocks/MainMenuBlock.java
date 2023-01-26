@@ -1,14 +1,17 @@
 package blocks;
 
 import io.qameta.allure.Step;
+import java.util.ArrayList;
 import java.util.List;
+import lombok.Data;
 import lombok.Getter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import utils.Utils;
 
-@Getter
+@Data
 public class MainMenuBlock {
 
   //Top Menu
@@ -19,14 +22,10 @@ public class MainMenuBlock {
   //Sub Menu
   private static final By clothesSubMenu
       = By.xpath("//li[@id='category-3']//div[contains(@id,'top_sub_menu')]//a");
-  private static final By menButton = By.id("category-4");
-  private static final By womenButton = By.id("category-5");
-
   private final By accessoriesSubMenu
       = By.xpath("//li[@id='category-6']//div[contains(@id,'top_sub_menu')]//a");
-  private static final By stationeryButton = By.id("category-7");
-  private static final By homeAccessoriesButton = By.id("category-8");
-  private static final By home = By.xpath("//li[@id='category-6']/a");
+  private final By artSubMenu
+      = By.xpath("//li[@id='category-9']//div[contains(@id,'top_sub_menu')]//a");
 
 
   private static WebDriver driver;
@@ -37,23 +36,40 @@ public class MainMenuBlock {
     actions = new Actions(driver);
   }
 
-  public MainMenuBlock hoverToClothesButton() {
-    Utils.hoverToButton(clothesButton);
+  public enum MainMenu {
+    CLOTHES,
+    ACCESSORIES,
+    ART
+  }
+
+  public MainMenuBlock hoverToButton(MainMenu buttons) {
+    switch (buttons) {
+      case CLOTHES:
+        Utils.hoverToButton(clothesButton);
+        break;
+      case ACCESSORIES:
+        Utils.hoverToButton(accessoriesButton);
+        break;
+      case ART:
+        Utils.hoverToButton(artButton);
+        break;
+    }
     return this;
   }
 
-  public MainMenuBlock hoverToAccessoriesButton() {
-    Utils.hoverToButton(accessoriesButton);
-    return this;
-  }
-
-  @Step("Get Text From Buttons Of [Clothes Sub Menu]")
-  public List<String> geTextFromButtonsOfClothesSubMenu() {
-    return Utils.getNamesFromButtons(clothesSubMenu);
-  }
-
-  @Step("Get Text From Buttons Of [Accessories Sub Menu]")
-  public List<String> getTextFromButtonsOfAccessoriesSubMenu() {
-    return Utils.getNamesFromButtons(accessoriesSubMenu);
+  public List<String> getNamesOfSubmenuButtons(MainMenu buttons) {
+    List<String> buttonsName = new ArrayList<>();
+    switch (buttons) {
+      case CLOTHES:
+        buttonsName = Utils.getNamesFromButtons(clothesSubMenu);
+        break;
+      case ACCESSORIES:
+        buttonsName = Utils.getNamesFromButtons(accessoriesSubMenu);
+        break;
+      case ART:
+        buttonsName = Utils.getNamesFromButtons(artSubMenu);
+        break;
+    }
+    return buttonsName;
   }
 }

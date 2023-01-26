@@ -46,6 +46,6 @@ public class CheckPricesTest extends BaseTest {
         .isEqualTo(newPricesFromProducts);
 
     softAssertions.assertAll();
-  }
 
+  }
 }

@@ -47,6 +47,8 @@ Test case #5 (Check categories)
 3.Check that 'MEN' and 'WOMEN' sub menu items appears
 4.Hover mouse over 'ACCESSORIES'
 5.Check that 'STATIONERY' and 'HOME ACCESSORIES' sub menu items appears
+6.Hover mouse over 'ART'
+7.Check that no any sub category appears
 
 
 Test case #6 (Check popular products)
@@ -88,3 +90,33 @@ Test case #9 (Adding to cart)
 7.Check that new window with title 'Product successfully added to your shopping cart' appears
 8.Check that correct 'Paper Type' and 'Quantity' is shown on the left side of the window
 9.Check that 'Total' calculated correct
+
+Test case #10 (Checkout end-to-end)
+
+1.Go to the https://demo.prestashop.com/
+2.In the search field enter 'Mug' and press 'Enter'
+3.On the 'SEARCH RESULTS' page click on 'Customizable Mug'
+4.Enter 'Best mug ever' in 'Product customization' field
+5.Click 'SAVE CUSTOMIZATION'
+6.Change 'Quantity' to '1' if not '1' already
+7.Click 'ADD TO CART' button
+8.On the next window click 'CONTINUE SHOPPING'
+9.In the search field enter 'T-Shirt' and press 'Enter'
+10.On the 'SEARCH RESULTS' page click on 'Hummingbird Printed T-Shirt'
+11.Select 'Black' color
+12.Click 'ADD TO CART' button
+13.On the next window click 'PROCEED TO CHECKOUT'
+14.On the 'SHOPPING CART' page check that 'Total' calculated correct
+15.Click 'PROCEED TO CHECKOUT'
+16.Fill 'PERSONAL INFORMATION' form with valid data (without password)
+17.Click 'CONTINUE'
+18.Fill the 'ADDRESSES' form with valid data
+19.Click 'CONTINUE'
+20.On the 'SHIPPING METHOD' section select 'My carrier'
+21.Click 'CONTINUE'
+22.On the 'PAYMENT' section select 'Pay by Check'
+23.Check that Amount equal Subtotal+Shipping
+24.Click on 'I agree..' checkbox
+25.Click on 'Order with an obligation to pay'
+26.Check that 'YOUR ORDER IS CONFIRMED' appered on the next page
+27.Check that 'TOTAL' calculated correct

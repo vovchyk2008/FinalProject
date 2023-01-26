@@ -12,6 +12,7 @@ import utils.Utils;
 @Getter
 public class MainPage extends BasePage {
 
+  //private final By contentWrapper = By.id("wrapper");
   private static final By mainFrame = By.id("framelive");
   private static final By loadingImage = By.id("loadingMessage");
   private static final By productContainer = By
@@ -62,4 +63,5 @@ public class MainPage extends BasePage {
     Utils.find(allProductsButton).click();
     return new AllProductsPage();
   }
+
 }

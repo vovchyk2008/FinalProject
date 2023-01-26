@@ -62,6 +62,7 @@ public class AllProductsPage extends BasePage{
     Utils.waitUntilVisible(productContainer, 20);
     Utils.scrollToElement(getDriver(), productContainer);
     Utils.waitRefreshed(productContainer, 20);
+    Utils.waitUntilPresents(productContainer, 10);
     List<ProductBlock> products = new ArrayList<>();
     List<WebElement> containers = getDriver().findElements(productContainer);
     for (WebElement container : containers) {

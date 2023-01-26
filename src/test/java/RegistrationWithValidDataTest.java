@@ -4,20 +4,18 @@ import pages.MainPage;
 
 public class RegistrationWithValidDataTest extends BaseTest {
 
-  String firstName = faker.name().firstName();
-  String lastName = faker.name().lastName();
-  String email = faker.internet().emailAddress();
-  String password = faker.internet().password();
-  String birthdayDateField = "12/02/1990";
-
-  @Test(description = "Check That User Name Appear Near Cart Button Test")
+  @Test(invocationCount = 5) //(description = "Check That User Name Appear Near Cart Button Test")
   public void checkThatUserNameAppearNearCartButtonTest() {
 
+    String firstName = faker.name().firstName();
+    String lastName = faker.name().lastName();
+    String email = faker.internet().emailAddress();
+    String password = faker.internet().password(10,72);
     String expectedUserName = firstName + " " + lastName;
 
     MainPage mainPage = new MainPage();
     mainPage.openMainPage()
-        .getTopBarBlockBlock()
+        .getTopBarBlock()
         .clickOnSignInButton()
         .clickOnCreateAccountButton()
         .checkSocialTitleRadioButton()
@@ -25,14 +23,13 @@ public class RegistrationWithValidDataTest extends BaseTest {
         .enterLastName(lastName)
         .enterEmail(email)
         .enterPassword(password)
-        .enterBirthdayDate(birthdayDateField)
         .clickOnReceiveOffersCheckBox()
         .clickOnCustomerDataPrivacyCheckBox()
         .clickOnSignUpForOurNewsletterCheckBox()
         .clickOnAgreeToTheTermsCheckBox()
-        .clickOnSaveButton();
+        .clickOnSaveButtonWithValidData();
 
-    String textFromUserNameButton = mainPage.getTopBarBlockBlock()
+    String textFromUserNameButton = mainPage.getTopBarBlock()
         .getTextFromUserNameButton();
 
     //Check your name appear near cart button

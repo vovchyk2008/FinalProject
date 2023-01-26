@@ -15,8 +15,8 @@ public class SearchResultPage extends BasePage {
 
   @Step("Click On [SearchingProduct]")
   public ProductPage clickOnSearchingProduct(String productName){
-    Utils.waitUntilVisible(productContainer, 10);
-    Utils.waitRefreshed(productContainer, 10);
+    Utils.waitUntilPresents(productContainer, 10);
+    Utils.waitRefreshedUntilPresents(productContainer, 10);
     List<ProductBlock> products = new ArrayList<>();
     List<WebElement> elements = getDriver().findElements(productContainer);
     for (WebElement element : elements) {

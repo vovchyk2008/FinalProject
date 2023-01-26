@@ -4,7 +4,8 @@ import pages.MainPage;
 
 public class NewsLetterTest extends BaseTest {
 
-  @Test(description = "Check The Text On News Letter Block Test")
+  @Test(invocationCount = 5)
+      //(description = "Check The Text On News Letter Block Test")
   public void checkTheTextOnNewsLetterBlockTest() {
 
     String expectedTextFromNewsLetterTitleLabel = "Get our latest news and special sales";

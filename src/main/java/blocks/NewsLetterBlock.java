@@ -22,7 +22,7 @@ public class NewsLetterBlock {
   }
 
   public String getTextFromNewsLetterTitleLabel() {
-    Utils.waitUntilVisible(newsLetterTitleLabel, 10);
+    Utils.waitUntilPresents(newsLetterTitleLabel, 10);
     Utils.scrollToElement(driver, newsLetterTitleLabel);
     return Utils.find(newsLetterTitleLabel).getText();
   }
