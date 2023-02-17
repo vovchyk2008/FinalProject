@@ -1,5 +1,9 @@
+import org.assertj.core.api.Assertions;
+import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
+import pages.CartPage;
 import pages.MainPage;
+import pages.PaymentPage;
 
 public class EndToEndTest extends BaseTest {
 
@@ -10,12 +14,27 @@ public class EndToEndTest extends BaseTest {
   String customizationMessage = "Best mug ever";
   String selectedColorOfTShirt = "Black";
   int quantityOfMugs = 1;
+  String expectedStatusName = "YOUR ORDER IS CONFIRMED";
+
+  String firstName = faker.name().firstName();
+  String lastName = faker.name().lastName();
+  String email = faker.internet().emailAddress();
+  String password = faker.internet().password(10,72);
+  String companyName = faker.company().name();
+  String vatNumber = faker.finance().iban();
+  String address = faker.address().fullAddress();
+  String addressComplement = faker.address().secondaryAddress();
+  String zipCod = faker.address().zipCode().substring(0,5);
+  String city = faker.address().city();
+  String phone = faker.phoneNumber().cellPhone();
+
+
 
   @Test
   public void checkEndToEndTest() {
 
     MainPage mainPage = new MainPage();
-    mainPage
+    double totalProductsPrice = mainPage
         .openMainPage()
         .enterSearchName(searchingName1)
         .clickOnSearchingProduct(clickOnName1)
@@ -28,23 +47,66 @@ public class EndToEndTest extends BaseTest {
         .clickOnSearchingProduct(clickOnName2)
         .selectColor(selectedColorOfTShirt)
         .clickOnAddToCartButton()
-        .clickOnProceedToCheckoutButton();
+        .clickOnProceedToCheckoutButton()
+        .getTotalPriceOfAllProducts();
+
+    CartPage cartPage = new CartPage();
+    double totalCartsPrice = cartPage.getTotalCartsPrice();
+
+    SoftAssertions softAssertions = new SoftAssertions();
+    softAssertions.assertThat(totalProductsPrice)
+        .as("")
+        .isEqualTo(totalCartsPrice);
+
+    double amountValue = cartPage
+        .clickOnProceedToCheckoutButton()
+        .checkSocialTitleRadioButton()
+        .enterFirstName(firstName)
+        .enterLastName(lastName)
+        .enterEmail(email)
+        .clickOnReceiveOffersCheckBox()
+        .clickOnCustomerDataPrivacyCheckBox()
+        .clickOnSignUpForOurNewsletterCheckBox()
+        .clickOnAgreeToTheTermsCheckBox()
+        .clickOnContinueButton()
+        .enterCompanyName(companyName)
+        .enterVatNumber(vatNumber)
+        .enterAddress(address)
+        .enterAddressComplement(addressComplement)
+        .zipCode(zipCod)
+        .enterCity(city)
+        .enterPhone(phone)
+        .clickOnContinueButton()
+        .clickOnByCarrierRadioButton()
+        .clickOnContinueButton()
+        .clickOnPayByCheckRadioButton()
+        .getAmountValue();
+
+    double sumOfSubtotalAndShipping = new PaymentPage().getSumOfSubtotalAndShipping();
+
+    softAssertions.assertThat(amountValue)
+        .as("")
+        .isEqualTo(sumOfSubtotalAndShipping);
+
+    String textFromStatusName = new PaymentPage()
+        .clickOnIAgreeCheckBox()
+        .clickOnPlaceOrderButton()
+        .getTextFromStatusName();
+
+    softAssertions.assertThat(textFromStatusName)
+        .as("")
+        .isEqualTo(expectedStatusName);
+
+
+
+    softAssertions.assertAll();
 
 
   }
 }
 
-//    14.On the 'SHOPPING CART' page check that 'Total' calculated correct
-//    15.Click 'PROCEED TO CHECKOUT'
-//    16.Fill 'PERSONAL INFORMATION' form with valid data (without password)
-//    17.Click 'CONTINUE'
-//    18.Fill the 'ADDRESSES' form with valid data
-//    19.Click 'CONTINUE'
-//    20.On the 'SHIPPING METHOD' section select 'My carrier'
-//    21.Click 'CONTINUE'
-//    22.On the 'PAYMENT' section select 'Pay by Check'
-//    23.Check that Amount equal Subtotal+Shipping
-//    24.Click on 'I agree..' checkbox
-//    25.Click on 'Order with an obligation to pay'
-//    26.Check that 'YOUR ORDER IS CONFIRMED' appeared on the next page
+
+
+
+
 //    27.Check that 'TOTAL' calculated correct

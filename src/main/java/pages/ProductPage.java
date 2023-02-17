@@ -27,7 +27,7 @@ public class ProductPage extends BasePage {
 
   @Step("Enter Customization Message]")
   public ProductPage enterCustomizationMessage(String message) {
-    Utils.waitUntilVisible(customizationMessageInput, 10);
+    Utils.waitUntilPresents(customizationMessageInput, 10);
     Utils.find(customizationMessageInput).sendKeys(message);
     return new ProductPage();
   }
@@ -62,8 +62,6 @@ public class ProductPage extends BasePage {
 
   @Step("Click on [Add To Cart] Button")
   public AddingToCartPage clickOnAddToCartButton() {
-    Utils.waitUntilPresents(addToCartButton, 10);
-    Utils.scrollToElement(getDriver(), addToCartButton);
     Utils.waitUntilClickable(addToCartButton, 10);
     Utils.find(addToCartButton).click();
     return new AddingToCartPage();

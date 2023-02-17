@@ -18,7 +18,7 @@ public class RegistrationWithValidDataTest extends BaseTest {
         .getTopBarBlock()
         .clickOnSignInButton()
         .clickOnCreateAccountButton()
-        .checkSocialTitleRadioButton()
+        .clickOnSocialTitleRadioButton()
         .enterFirstName(firstName)
         .enterLastName(lastName)
         .enterEmail(email)

@@ -42,7 +42,8 @@ public abstract class BasePage {
   }
 
   public SearchResultPage enterSearchName(String searchName) {
-    Utils.waitUntilVisible(searchInput, 20);
+    Utils.waitUntilPresents(searchInput, 20);
+    Utils.scrollToElement(driver, searchInput);
     getDriver().findElement(searchInput).sendKeys(searchName);
     getDriver().findElement(searchInput).sendKeys(Keys.ENTER);
     return new SearchResultPage();

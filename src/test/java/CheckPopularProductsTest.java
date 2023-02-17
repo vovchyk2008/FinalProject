@@ -1,6 +1,5 @@
 import blocks.ProductBlock;
 import java.util.List;
-import java.util.Objects;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 import pages.MainPage;
@@ -33,7 +32,8 @@ public class CheckPopularProductsTest extends BaseTest {
 
     softAssertions.assertThat(allNamesFromProducts)
         .as("We are waiting that every name from: " + allNamesFromProducts + "is not null")
-        .allMatch(s -> s != null);
+       //.allMatch(obj -> Objects.nonNull(obj));
+    .doesNotContainNull();
 
     //Check that every product has price
 
@@ -50,6 +50,7 @@ public class CheckPopularProductsTest extends BaseTest {
         .as("We are waiting that every price from: " + allPricesFromProducts + "is bigger then"
             + priceBiggerThen)
         .allMatch(aDouble -> aDouble > priceBiggerThen);
+
 
     softAssertions.assertAll();
   }

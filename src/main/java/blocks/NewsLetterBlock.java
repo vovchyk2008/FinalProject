@@ -31,7 +31,7 @@ public class NewsLetterBlock {
     return Utils.find(unsubscribeDescriptionLabel).getText();
   }
 
-  public String getTextFromSubscribeButton() {
+  public String getAttributeFromSubscribeButton() {
     return Utils.find(subscribeButton).getCssValue("text-transform");
   }
 }

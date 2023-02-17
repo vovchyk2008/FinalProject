@@ -37,14 +37,15 @@ public class AddingToCartPage extends BasePage {
   }
 
   public AddingToCartPage clickOnContinueShoppingButton() {
-    Utils.waitUntilPresents(continueShoppingButton, 10);
+    Utils.waitUntilVisible(continueShoppingButton, 10);
     Utils.scrollToElement(getDriver(), continueShoppingButton);
     Utils.find(continueShoppingButton).click();
     return this;
   }
 
   public CartPage clickOnProceedToCheckoutButton() {
-    Utils.waitUntilPresents(proceedToCheckoutButton, 10);
+
+    Utils.waitUntilVisible(proceedToCheckoutButton, 10);
     Utils.find(proceedToCheckoutButton).click();
     return new CartPage();
   }

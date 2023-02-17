@@ -1,6 +1,7 @@
 package blocks;
 
 import lombok.Getter;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -50,8 +51,9 @@ public class CartBlock {
 
     try {
       this.discount =
-          container.findElement(By.xpath(".//span[@class='regular-price']")).getText();
-      this.discountAsDouble = Double.parseDouble(actualPriceAsString);
+          container.findElement(By.xpath(".//span[@class='discount discount-percentage']"))
+              .getText();
+      this.discountAsDouble = Double.parseDouble(discount.substring(1, 3));
     } catch (NoSuchElementException e) {
       this.discount = null;
       this.discountAsDouble = null;

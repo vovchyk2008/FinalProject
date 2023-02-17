@@ -36,7 +36,7 @@ public class NewsLetterTest extends BaseTest {
         .as("Text under email field must contains: " + expectedTextFromUnsubscribeDescriptionLabel)
         .contains(expectedTextFromUnsubscribeDescriptionLabel);
 
-    String actualAttributeFromSubscribeButton = mainPage.getNewsLetterBlock().getTextFromSubscribeButton();
+    String actualAttributeFromSubscribeButton = mainPage.getNewsLetterBlock().getAttributeFromSubscribeButton();
 
     //Check that all characters on 'SUBSCRIBE' button in upper case
 
